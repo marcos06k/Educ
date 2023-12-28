@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-DUQ - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+    rel="stylesheet"
+    />
+    <link href="../dist/output.css" rel="stylesheet">
+  </head>
+  <body class="bg-fundo-claro h-screen flex items-center">
+    <div class="flex justify-end items-center h-screen w-5/12 bg-roxo-claro ">
+      <div
+        class="flex justify-center items-center bg-roxo-claro h-4/6 w-2/5 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
+      >
+        <div class="p-3"><img src="assets/Group 5.png" alt="" /></div>
+      </div>
+    </div>
+    <main class="flex flex-col w-4/12 h-4/6 rounded-3xl">
+      <div
+        class="flex flex-col items-center justify-between w-full h-full bg-white rounded-r-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
+      >
+        <h1
+          class="flex justify-center items-center font-montserrat text-3xl mt-24 2xl:mt-8 2xl:text-2xl"
+        >
+          LOGIN DE CONTA
+        </h1>
+
+        <form class="h-full w-full flex flex-col mt-12 2xl:mt-8" action="" method="post">
+          <div class="w-full flex flex-col justify-between items-center mb-3">
+            <label class="font-montserrat mr-80 pr-10 2xl:mr-52" for="email">EMAIL</label>
+
+            <input
+              class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
+              type="email"
+              name=""
+              id="email"
+              required
+            />
+            <label class="font-montserrat mr-80 mt-10 2xl:mt-4 pr-10 2xl:mr-52" for="senha">SENHA</label>
+            <input
+              class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
+              type="password"
+              name=""
+              id="senha"
+              required
+            />
+          </div>
+
+          <div class="flex justify-between px-28 text-sm 2xl:px-20">
+            <div>
+              <input type="checkbox" id="lembre" class="accent-violet-900"/>
+              <label class="font-montserrat" for="lembre">Lembre de mim</label>
+            </div>
+            <a class="font-montserrat hover:underline hover:decoration-1" href="#">Esqueceu a senha?</a>
+          </div>
+
+          <div class="mt-8 ml-24 flex items-center gap-20 2xl:ml-16">
+            <input
+              class="bg-roxo-claro text-white font-montserrat font-black w-1/4 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-3/5"
+              type="submit"
+              value="Login"
+            />
+            <p class="text-sm font-montserrat pr-12">
+              Não possui uma conta?
+              <a class="font-bold text-roxo-claro hover:underline hover:decoration-1" href="registrar.html">Cadastre-se</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
