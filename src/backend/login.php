@@ -61,16 +61,20 @@
         if($email_input == $email_bd && $senha_input == $senha_bd){
             // se o usuário for um administrador, ele guarda em uma section que ele é o administrador
             if ($tipo_usuario == 'administrador'){
-                $_SESSION['login_administrador'] = [$email_bd, $senha_bd];
-                echo "email: $email_bd<br> senha: $senha_bd";
+                session_start();
+                $_SESSION['email_administrador'] = $email_bd;
+                $_SESSION['senha_administrador'] = $senha_bd;
+                
             }
             // se o usuário for um professor, ele guarda em uma section que ele é o professor 
             else if ($tipo_usuario == 'professor'){
+                session_start();
                 $_SESSION['login_professor'] = [$email_bd, $senha_bd];
                 echo "email: $email_bd<br> senha: $senha_bd";
             } 
             // se o usuário for um aluno, ele guarda em uma section que ele é o aluno
             else if ($tipo_usuario == 'aluno'){
+                session_start();
                 $_SESSION['login_aluno'] = [$email_bd, $senha_bd];
                 echo "email: $email_bd<br> senha: $senha_bd";
             } 

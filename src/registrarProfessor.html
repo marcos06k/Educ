@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-DUQ - Registrar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="../dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-fundo-claro h-screen flex items-center">
+  <div class="flex justify-end items-center h-screen w-4/12 bg-roxo-claro 2xl:w-2/12">
+    <div
+      class="flex justify-center items-center bg-roxo-claro h-5/6 w-3/5 2xl:w-10/12 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+      <div class="p-3"><img src="assets/Group 5.png" alt="" /></div>
+    </div>
+  </div>
+  <main class="flex flex-col w-6/12 h-5/6 rounded-3xl 2xl:w-9/12">
+    <div
+      class="flex flex-col items-center justify-between w-full h-full bg-white rounded-r-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+      <h1 class="flex justify-center items-center font-montserrat text-3xl mt-24 2xl:mt-8 2xl:text-2xl">
+        CADASTRO DE CONTA
+      </h1>
+      <form class="flex w-full h-full mt-16 2xl:mt-6" action="backend/registrar.php" method="post">
+        <div class="flex flex-col justify-start w-2/4 h-full pl-10 gap-1">
+          <label class="font-montserrat" for="nome">NOME</label>
+          <input
+            class="border border-neutral-700 w-11/12 h-16 rounded-sm px-4 focus:outline-none focus:border-violet-800"
+            type="text" name="nome" id="nome" />
+          <label class="font-montserrat" for="sobrenome">SOBRENOME</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="text" name="sobrenome" id="sobrenome" />
+          <label class="font-montserrat" for="data">DATA DE NASCIMENTO</label>
+          <input
+            class="border px-4 border-neutral-700 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="date" name="data_nascimento" id="data" />
+          <label class="font-montserrat" for="cpf">cpf</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="text" name="cpf" id="cpf" />
+
+          <div class="mt-8 flex items-center gap-14 2xl:gap-12">
+            <input
+              class="bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6"
+              type="submit" value="Cadastrar" />
+            <p class="text-sm font-montserrat pr-12">
+              Já possui uma conta?
+              <a class="font-bold text-roxo-claro hover:underline hover:decoration-1" href="index.html">Logar-se</a>
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col justify-start pl-10 w-2/4 h-full gap-1">
+          <label class="font-montserrat" for="telefone">TELEFONE</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="tel" name="telefone" id="telefone" />
+          <label class="font-montserrat" for="nome_mae">NOME DA MAE</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="text" name="nome_mae" id="nome_mae" />
+          <label class="font-montserrat" for="nome_pai">NOME DA PAI</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="text" name="nome_pai" id="nome_pai" />
+          <label class="font-montserrat" for="num_conta_bancaria">Num_conta_bancaria</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="text" name="num_conta_bancaria" id="num_conta_bancaria" />
+
+        </div>
+        <div class="flex flex-col justify-start pl-10 w-2/4 h-full gap-1">
+          
+          <label class="font-montserrat" for="email">email</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="email" name="email" id="email" />
+          <label class="font-montserrat" for="senha">senha</label>
+          <input
+            class="border border-neutral-700 px-4 w-11/12 h-16 rounded-sm focus:outline-none focus:border-violet-800"
+            type="password" name="senha" id="senha" />
+          
+            <div>
+              
+              <label for="tipo_usuario">tipo de usuário:</label>
+              <select id="tipo_usuario" name="tipo_usuario">
+                <option value="professor">Professor</option>
+              </select>
+            </div>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
