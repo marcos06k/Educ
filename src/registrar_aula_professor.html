@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="backend/registrarAula.php" method="post">
+        <table>
+            <tr>
+                <th>id Turma</th>
+                <th>Nome da aula</th>
+                <th>Data</th>
+                <th>Presencial</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" name="input_id_turma">
+                </td>
+                <td>
+                    <input type="text" name="nome_aula">
+                </td>
+                <td>
+                    <input type="date" name="data_aula">
+                </td>
+                <td>
+                    <select name="presencial" >
+                        <option selected disabled>Escolha</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
