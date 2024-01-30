@@ -4,8 +4,9 @@ include('../conexao.php');
 session_start();
 
 //dados do login do user ativo
-$emailProfessor = $_SESSION['email_professor'];
+$emailProfessor = $_SESSION['email_professor,'];
 $senhaProfessor = $_SESSION['senha_professor'];
+
 
 $input_id_turma = $_POST['input_id_turma'];
 $nome_aula = $_POST['nome_aula'];
@@ -30,4 +31,5 @@ for ($i=0; $i < $quantidade_turmaAluno; $i++) {
     $id_turma_aluno = mysqli_fetch_row($query_turma_aluno);
     $query_turma_aluno_aula = mysqli_query($banco, "insert into turma_aluno_aula values (null, '$id_turma_aluno[0]', '$id_ultima_aula_cadastrada');");
 }
+
 ?>

@@ -11,5 +11,7 @@ $id_aluno = $_POST['id_aluno'];
 
 
 $sql_adicionarAlunoTurma = mysqli_query($banco, "insert into turma_aluno values (null, '$id_turma', '$id_aluno');");
+
+
 ?>
 
