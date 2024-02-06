@@ -1,6 +1,7 @@
 <?php
 include('../conexao.php');
 $id_aula = $_POST['id_aula'];
+$nome = $_POST['nome'];
 $peso = $_POST['peso'];
 $consulta = $_POST['consulta'];
 $entregavel = $_POST['entregavel'];
@@ -31,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Encontra o arquivo na pasta 'files/atividades'
                 $arquivo_pasta = $pastaDir.$file["name"];
                 echo 'Esse é o arquivo na pasta files/atividades --> ' . $arquivo_pasta ."<br>";
-                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva');");
+                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva', '$nome');");
                 if($query_upload_url){
                     echo "Atividade registrada com sucesso!";
                     // pegar o id da atividade inserida no banco 
