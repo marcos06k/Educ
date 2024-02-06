@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($file["error"] === UPLOAD_ERR_OK) {
 
             // Diretório da nova pasta que o arquivo será redirecionado/salvo
-            $pastaDir = 'C:/xampp/htdocs/backend-pi/src/files/atividades/';  
+            $pastaDir = 'files/conteudo_assincrono/';  
             $uploadPath = $pastaDir . basename($file["name"]);
 
             // Move o arquivo para a pasta do destino e faz o upload do caminho do diretório para o BD
