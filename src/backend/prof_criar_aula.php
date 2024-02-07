@@ -4,7 +4,7 @@ include('../conexao.php');
 session_start();
 
 //dados do login do user ativo
-$emailProfessor = $_SESSION['email_professor,'];
+$emailProfessor = $_SESSION['email_professor'];
 $senhaProfessor = $_SESSION['senha_professor'];
 
 

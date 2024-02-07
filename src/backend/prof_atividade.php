@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($file["error"] === UPLOAD_ERR_OK) {
 
             // Diretório da nova pasta que o arquivo será redirecionado/salvo
-            $pastaDir = 'files/conteudo_assincrono/';  
+            $pastaDir = 'files/atividades/';  
             $uploadPath = $pastaDir . basename($file["name"]);
 
             // Move o arquivo para a pasta do destino e faz o upload do caminho do diretório para o BD
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Encontra o arquivo na pasta 'files/atividades'
                 $arquivo_pasta = $pastaDir.$file["name"];
                 echo 'Esse é o arquivo na pasta files/atividades --> ' . $arquivo_pasta ."<br>";
-                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva', '$nome');");
+                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$nome', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva');");
                 if($query_upload_url){
                     echo "Atividade registrada com sucesso!";
                     // pegar o id da atividade inserida no banco 

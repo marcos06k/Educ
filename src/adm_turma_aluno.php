@@ -11,7 +11,7 @@ for ($i=0; $i < $turmas; $i++) {
     echo "---------------------------------------------------------------------------------------------------------------------------------------------------------- <br>";
 }
 
-echo "<form action='backend/turmaAluno.php' method='post'> <label for='cpf_aluno'>CPF DO ALUNO</label> <input type='text' name='cpf_aluno' id='cpf_aluno' required> </form>";
+echo "<form action='backend/adm_turmaAluno.php' method='post'> <label for='cpf_aluno'>CPF DO ALUNO</label> <input type='text' name='cpf_aluno' id='cpf_aluno' required> </form>";
 
 
 ?>
