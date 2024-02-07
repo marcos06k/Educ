@@ -16,8 +16,7 @@ $sql_atividade = "SELECT
                                 atv.arquivo_blob,
                                 atv.nome
                             FROM atividade atv
-                                INNER JOIN aula_atividade al_atv ON atv.id_atividade = al_atv.id_atividade
-                                INNER JOIN aula al ON al_atv.id_aula = al.id_aula
+                                INNER JOIN aula al ON atv.id_aula = al.id_aula
                                 INNER JOIN turma_aluno_aula tm_aln_al ON al.id_aula = tm_aln_al.id_aula
                                 INNER JOIN turma_aluno tm_aln ON tm_aln_al.id_turma_aluno = tm_aln.id_turma_aluno
                                 INNER JOIN aluno aln ON tm_aln.id_aluno = aln.id_aluno

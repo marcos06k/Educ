@@ -16,8 +16,7 @@ $sql_conteudo_assincrono = "SELECT
                                 cnt_ass.arquivo_blob,
                                 cnt_ass.nome
                             FROM conteudo_assincrono cnt_ass
-                                INNER JOIN aula_conteudo_assincrono al_cnt_ass ON cnt_ass.id_conteudo_assincrono = al_cnt_ass.id_conteudo_assincrono
-                                INNER JOIN aula al ON al_cnt_ass.id_aula = al.id_aula
+                                INNER JOIN aula al ON cnt_ass.id_aula = al.id_aula
                                 INNER JOIN turma_aluno_aula tm_aln_al ON al.id_aula = tm_aln_al.id_aula
                                 INNER JOIN turma_aluno tm_aln ON tm_aln_al.id_turma_aluno = tm_aln.id_turma_aluno
                                 INNER JOIN aluno aln ON tm_aln.id_aluno = aln.id_aluno

@@ -32,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Encontra o arquivo na pasta 'files/atividades'
                 $arquivo_pasta = $pastaDir.$file["name"];
                 echo 'Esse é o arquivo na pasta files/atividades --> ' . $arquivo_pasta ."<br>";
-                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$nome', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva');");
+                $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$nome', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva','$id_aula');");
                 if($query_upload_url){
                     echo "Atividade registrada com sucesso!";
-                    // pegar o id da atividade inserida no banco 
-                    $id_atividade = $banco->insert_id;
-                    $query_aula_atividade = mysqli_query($banco, "insert into aula_atividade values(null, '$id_aula','$id_atividade');");
+                    
                 } else {
                     echo "Erro: ".mysqli_error($banco);
                 }
