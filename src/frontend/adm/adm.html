@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../scripts/tailwindcfg.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-fundo-claro h-screen font-montserrat">
+    <header
+      class="bg-white shadow-sm w-full h-20 flex justify-between items-center px-10"
+    >
+      <img
+        src="../../assets/Group 3-PhotoRoom.png-PhotoRoom.png"
+        alt="Logo EDUQ"
+        class="h-36"
+      />
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-2">
+          <img src="../../assets/user.png" alt="Foto perfil" class="h-8" />
+          <h1 class="font-bold">Administrador 01</h1>
+        </div>
+        <a
+          href="#"
+          class="bg-roxo-claro text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-purple-950"
+          >LOG OUT</a
+        >
+      </div>
+    </header>
+    <menu
+      class="gap-2 bg-white shadow-sm w-full h-20 flex items-center px-10 mb-12"
+    >
+      <span class="material-symbols-outlined text-3xl">home</span>
+      <h1 class="text-sm font-bold">Menu Principal</h1>
+    </menu>
+    <main class="flex flex-wrap w-full justify-center gap-8">
+      <a
+        href="gerenciar_usuarios.html"
+        class="bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950"
+        >Usuários</a
+      >
+      <a
+        href="gerenciar_turmas.html"
+        class="bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950"
+        >Turmas</a
+      >
+    </main>
+  </body>
+</html>

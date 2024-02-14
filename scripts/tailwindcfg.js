@@ -7,12 +7,13 @@ tailwind.config = {
                 escuro: '#1F1A24'           
             },
             fundo: {
-                claro: '#EBEBEB',
+                claro: '#F1F4F9',
                 escuro: '#121212'
             },
         },
         fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif']
+            montserrat: ['Montserrat', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
         },
         screens: {
             '2xl': {'max': '1535px'},
@@ -30,6 +31,8 @@ tailwind.config = {
             'sm': {'max': '639px'},
             // => @media (max-width: 639px) { ... } celular
           }
-      }
+
+        
+      },
     }
 }
