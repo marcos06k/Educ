@@ -1,7 +1,6 @@
 <?php
 include('../conexao.php');
 
-
 session_start();
 
 $emailAdministrador = $_SESSION['email_administrador'];
