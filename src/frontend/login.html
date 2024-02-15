@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-DUQ - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../scripts/tailwindcfg.js"></script>
+    <script src="../../scripts/tailwindcfg.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,7 @@
       <div
         class="flex justify-center items-center bg-roxo-claro h-4/6 w-2/5 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
       >
-        <div class="p-3"><img src="../assets/Group 5.png" alt="" /></div>
+        <div class="p-3"><img src="../../assets/Group 5.png" alt="" /></div>
       </div>
     </div>
     <main class="flex flex-col w-4/12 h-4/6 rounded-3xl">
@@ -31,14 +31,14 @@
           LOGIN DE CONTA
         </h1>
 
-        <form class="h-full w-full flex flex-col mt-12 2xl:mt-8" action="" method="post">
+        <form class="h-full w-full flex flex-col mt-12 2xl:mt-8" action="../backend/login.php" method="post">
           <div class="w-full flex flex-col justify-between items-center mb-3">
             <label class="font-montserrat mr-80 pr-10 2xl:mr-52" for="email">EMAIL</label>
 
             <input
               class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
               type="email"
-              name=""
+              name="input_email"
               id="email"
               required
             />
@@ -46,7 +46,7 @@
             <input
               class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
               type="password"
-              name=""
+              name="input_senha"
               id="senha"
               required
             />

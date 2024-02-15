@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-DUQ - Registrar Administrador</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../scripts/tailwindcfg.js"></script>
+    <script src="../../../scripts/tailwindcfg.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +21,7 @@
       <div
         class="flex justify-center items-center bg-roxo-claro h-5/6 w-3/5 2xl:w-10/12 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
       >
-        <div class="p-3"><img src="../assets/Group 5.png" alt="" /></div>
+        <div class="p-3"><img src="../../../assets/Group 5.png" alt="" /></div>
       </div>
     </div>
     <main class="flex flex-col w-6/12 h-5/6 rounded-3xl 2xl:w-9/12">
@@ -33,35 +33,35 @@
         >
           CADASTRO DE CONTA
         </h1>
-        <form class="flex w-full h-full" action="" method="post">
+        <form class="flex w-full h-full" action="../../backend/administrador/adm_registrar_adm.php" method="post">
           <section class="flex w-full h-full mt-16 2xl:mt-6" id="etapa_um"> <!-- ETAPA 1 CADASTRO  -->
             <div class="flex flex-col justify-start w-2/4 h-full pl-10 gap-1">
               <label class="font-montserrat" for="nome">NOME</label>
               <input
                 class="border border-neutral-700 w-11/12 h-16 2xl:h-12 rounded-sm px-4 focus:outline-none focus:border-violet-800"
                 type="text"
-                name=""
+                name="nome"
                 id="nome"
               />
               <label class="font-montserrat" for="sobrenome">SOBRENOME</label>
               <input
                 class="border px-4 border-neutral-700 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                 type="text"
-                name=""
+                name="sobrenome"
                 id="sobrenome"
               />
               <label class="font-montserrat" for="email">EMAIL</label>
               <input
                 class="border border-neutral-700 px-4 w-11/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
                 type="email"
-                name=""
+                name="email"
                 id="email"
               />
               <label class="font-montserrat" for="senha">SENHA</label>
               <input
                 class="border px-4 border-neutral-700 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                 type="password"
-                name=""
+                name="senha"
                 id="senha"
               />
               <div class="mt-8 2xl:mt-5 flex items-center gap-14 2xl:gap-12">
@@ -85,28 +85,21 @@
               <input
                 class="border px-4 border-neutral-700 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                 type="date"
-                name=""
+                name="data_nascimento"
                 id="data"
               />
               <label class="font-montserrat" for="telefone">TELEFONE</label>
               <input
                 class="border border-neutral-700 px-4 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                 type="tel"
-                name=""
+                name="telefone"
                 id="telefone"
-              />
-              <label class="font-montserrat" for="rg">RG</label>
-              <input
-                class="border border-neutral-700 px-4 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
-                type="number"
-                name=""
-                id="rg"
               />
               <label class="font-montserrat" for="cpf">CPF</label>
               <input
                 class="border border-neutral-700 px-4 w-11/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                 type="number"
-                name=""
+                name="cpf"
                 id="cpf"
               />
             </div>

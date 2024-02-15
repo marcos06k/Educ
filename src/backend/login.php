@@ -1,6 +1,6 @@
 <?php
     // Realizando a conexão com o banco de dados.
-    include('../conexao.php');
+    include('conexao.php');
 
 
     // Recebendo os valores digitados dos campos email e senha da pagina de login.
