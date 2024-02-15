@@ -1,3 +1,105 @@
+<?php
+  
+  include("../../backend/conexao.php");
+        
+  function listar_alunos() {
+
+  // realizar a listagem sem filtro (listando todos os usuarios do sistema)
+  if(empty($_POST['tipo_usuario']) || empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['email'])){
+  global $banco;
+  
+  $query_aluno = mysqli_query($banco, "select id_aluno, nome, data_nascimento, cpf, email from aluno");
+  $query_professor  = mysqli_query($banco, "select id_professor, nome, data_nascimento, cpf, email from professor");
+  $query_administrador = mysqli_query($banco, "select id_administrador, nome, data_nascimento, cpf, email from administrador");
+
+  $result_num_rows_aluno = mysqli_num_rows($query_aluno);
+  $result_num_rows_professor = mysqli_num_rows($query_professor);
+  $result_num_rows_administrador = mysqli_num_rows($query_administrador);
+  
+  for ($i=0; $i < $result_num_rows_aluno; $i++) {
+      $dados_aluno = mysqli_fetch_row($query_aluno);
+      listar_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], 'Aluno');
+  }
+  for ($i=0; $i < $result_num_rows_professor; $i++) {
+    $dados_professor = mysqli_fetch_row($query_professor);
+    listar_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], 'Professor');
+  }
+  for ($i=0; $i < $result_num_rows_administrador; $i++) {
+    $dados_administrador = mysqli_fetch_row($query_administrador);
+    listar_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4], 'Administrador');
+}
+  } else {
+    // realizar a listagem com filtro (listando um usuário em especifico conforme os dados inseridos no filtro)
+    if($_POST['tipo_usuario'] == 'option_aluno'){
+      $nome = $_POST['nome'];
+      $cpf = $_POST['cpf'];
+      $email = $_POST['email'];
+      
+      global $banco;
+      $query_aluno = mysqli_query($banco, "select id_aluno, nome, sobrenome, data_nascimento, cpf, email from aluno where nome='$nome' and cpf='$cpf' and email='$email'; ");
+      $result_num_rows_aluno = mysqli_num_rows($query_aluno);
+      for ($i=0; $i < $result_num_rows_aluno; $i++) { 
+        $dados_aluno = mysqli_fetch_row($query_aluno);
+        listar_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], 'Aluno');
+      }
+
+    } else if ($_POST['tipo_usuario'] == 'option_professor') {
+      $nome = $_POST['nome'];
+      $cpf = $_POST['cpf'];
+      $email = $_POST['email'];
+      
+      global $banco;
+      $query_professor  = mysqli_query($banco, "select id_professor, nome, sobrenome, data_nascimento, cpf, email from professor where nome='$nome' and cpf='$cpf' and email='$email';");
+      $result_num_rows_professor = mysqli_num_rows($query_professor);
+      for ($i=0; $i < $result_num_rows_professor; $i++) { 
+        $dados_professor = mysqli_fetch_row($query_professor);
+        listar_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], 'Professor');
+      }
+    } else if($_POST['tipo_usuario'] == 'option_administrador'){
+      $nome = $_POST['nome'];
+      $cpf = $_POST['cpf'];
+      $email = $_POST['email'];
+
+      global $banco;
+      $query_administrador = mysqli_query($banco, "select id_administrador, nome, sobrenome, data_nascimento, cpf, email from administrador where nome='$nome' and cpf='$cpf' and email='$email';");
+      $result_num_rows_administrador = mysqli_num_rows($query_administrador);
+      for ($i=0; $i < $result_num_rows_administrador; $i++) { 
+        $dados_administrador = mysqli_fetch_row($query_administrador);
+        listar_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4], 'Administrador');
+      }
+  
+    }
+    
+  }
+  
+}
+
+function listar_usuarios($id, $nome, $nascimento, $cpf, $email, $tipo_usuario) {
+  echo "<tr class='odd:bg-white even:bg-gray-50 border-b'>
+  <th
+    scope='row'
+    class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'
+  >
+  $id
+  </th>
+  <td class='px-6 py-4'>$nome</td>
+  <td class='px-6 py-4'>$cpf</td>
+  <td class='px-6 py-4'>$nascimento</td>
+  <td class='px-6 py-4'>$email</td>
+  <td class='px-6 py-4'>$tipo_usuario</td>
+  <td class='px-6 py-4'>
+    <button type='button' onclick='toggleModal('modal-id')'>
+      <a
+        href='#'
+        class='font-medium text-indigo-800 hover:underline'
+        >Editar</a
+      >
+    </button>
+  </td>
+</tr>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,19 +151,8 @@
         <tbody>
 
           <?php
-          include('../../backend/conexao.php');
-          include("../../backend/administrador/adm_listar_alunos.php");
-
-
+           listar_alunos();
           ?>
-
-
-
-
-
-
-
-
 
         </tbody>
       </table>
@@ -116,19 +207,19 @@
       <div class="flex flex-col w-full font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50">
         <h1 class="text-md font-montserrat font-bold flex items-center gap-2"><span class="material-symbols-outlined">sort</span> Filtrar por:</h1>
         
-          <form action="../../backend/administrador/adm_listar_alunos.php" class="flex flex-col gap-2">
-             <select class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro">
+          <form action="gerenciar_usuarios.php" class="flex flex-col gap-2" method="post">
+             <select name="tipo_usuario" class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro">
               <option disabled selected class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" value="">
                 TIPO-USUÁRIO
               </option>
               <option class="text-gray-700" value="option_aluno">Aluno</option>
-              <option class="text-gray-700" value="option_administrador">Administrador</option>
               <option class="text-gray-700" value="option_professor">Professor</option>
+              <option class="text-gray-700" value="option_administrador">Administrador</option>
             </select>
-            <input placeholder="NOME" class=" h-8 rounded-sm px-2 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="text" />
-            <input placeholder="CPF" class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="number" />
-            <input placeholder="EMAIL" class="h-8 rounded-sm px-2 mb-3 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="email" />
-            <input placeholder="Filtrar" type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
+            <input name="nome" placeholder="NOME" class=" h-8 rounded-sm px-2 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="text" />
+            <input name="cpf" placeholder="CPF" class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="number" />
+            <input name="email" placeholder="EMAIL" class="h-8 rounded-sm px-2 mb-3 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="email" />
+            <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
           </form>
         
       </div>

@@ -1,15 +1,22 @@
 <?php
 
 
-$query_aluno = mysqli_query($banco, "select id_aluno, nome, sobrenome, data_nascimento, cpf, email from aluno");
-$query_professor  = mysqli_query($banco, "select id_professor, nome, sobrenome, data_nascimento, cpf, email from professor");
-$query_administrador = mysqli_query($banco, "select id_administrador, nome, sobrenome, data_nascimento, cpf, email from administrador");
+        listar_alunos();
 
-$result_num_rows_aluno = mysqli_num_rows($query_aluno);
-$result_num_rows_professor = mysqli_num_rows($query_professor);
-$result_num_rows_administrador = mysqli_num_rows($query_administrador);
+        
+        function listar_alunos() {
 
-            for ($i=0; $i < $result_num_rows_aluno; $i++) { 
+        if(empty($_POST['tipo_usuario']) || empty($_POST['nome']) && empty($_POST['cpf']) && empty($_POST['email'])){
+        global $banco;
+        
+        $query_aluno = mysqli_query($banco, "select id_aluno, nome, sobrenome, data_nascimento, cpf, email from aluno");
+        $query_professor  = mysqli_query($banco, "select id_professor, nome, sobrenome, data_nascimento, cpf, email from professor");
+        $query_administrador = mysqli_query($banco, "select id_administrador, nome, sobrenome, data_nascimento, cpf, email from administrador");
+
+        $result_num_rows_aluno = mysqli_num_rows($query_aluno);
+        $result_num_rows_professor = mysqli_num_rows($query_professor);
+        $result_num_rows_administrador = mysqli_num_rows($query_administrador);
+        for ($i=0; $i < $result_num_rows_aluno; $i++) { 
             $dados_aluno = mysqli_fetch_row($query_aluno);
             echo "<tr class='odd:bg-white even:bg-gray-50 border-b'>
             <th
@@ -86,4 +93,13 @@ $result_num_rows_administrador = mysqli_num_rows($query_administrador);
             </td>
           </tr>";
           }
+
+        } else {
+        
+        
+        //   header("Location: ../frontend/adm/gerenciar_usuarios.php");
+        }
+
+        
+    }
 ?>
