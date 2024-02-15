@@ -48,19 +48,19 @@
                 session_start();
                 $_SESSION['email_administrador'] = $email_bd;
                 $_SESSION['senha_administrador'] = $senha_bd;
-                echo "bem vindo, administrador!";
+                header("Location: ../frontend/adm/adm.html");
             }
             else if ($tipo_usuario == 'professor'){
                 session_start();
                 $_SESSION['email_professor'] = $email_bd;
                 $_SESSION['senha_professor'] = $senha_bd;
-                echo "bem vindo, professor!";
+                header("Location: ../frontend/aluno-professor/main.html");
             } 
             else if ($tipo_usuario == 'aluno'){
                 session_start();
                 $_SESSION['email_aluno'] = $email_bd;
                 $_SESSION['senha_aluno'] = $senha_bd;
-                echo "bem vindo, aluno!";
+                header("Location: ../frontend/aluno-professor/main.html");
             } 
         } else {
             echo "errou a senha";
