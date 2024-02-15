@@ -1,8 +1,7 @@
 <?php
 include('../conexao.php');
 
-       
-        
+//funcionando
 $nome = $_POST['nome'];
 $sobrenome = $_POST['sobrenome'];
 $data_nascimento = $_POST['data_nascimento'];
