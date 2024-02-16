@@ -1,3 +1,69 @@
+<?php
+include("../../backend/conexao.php");
+  function listar_turma() {
+    if ( empty($_POST['turno'])  || empty($_POST['curso']) ) {
+      global $banco;
+      
+      $query_turma = mysqli_query($banco, "select id_turma, turno,  curso, data_inicio, data_termino, id_professor, id_administrador from turma");
+
+      $result_num_rows_turma = mysqli_num_rows($query_turma);
+      
+      for($i=0; $i < $result_num_rows_turma; $i++){
+        $dados_turma = mysqli_fetch_row($query_turma);
+        imprimir_turma($dados_turma[0], $dados_turma[1], $dados_turma[2], $dados_turma[3], $dados_turma[4], $dados_turma[5], $dados_turma[6],);
+      }
+    } else {
+        $turno = $_POST['turno'];
+        $curso = $_POST['curso'];
+
+        global $banco;
+        $query_turma = mysqli_query($banco, "select id_turma, turno,  curso, data_inicio, data_termino, id_professor, id_administrador from turma where turno='$turno' and curso='$curso' ");
+        $result_num_rows_turma = mysqli_num_rows($query_turma);
+        for($i=0; $i < $result_num_rows_turma; $i++){
+        $dados_turma = mysqli_fetch_row($query_turma);
+        imprimir_turma($dados_turma[0], $dados_turma[1], $dados_turma[2], $dados_turma[3], $dados_turma[4], $dados_turma[5], $dados_turma[6],);
+      }
+    }
+  } 
+
+  function imprimir_turma($id_turma, $turno,  $curso, $data_inicio, $data_termino, $id_professor, $id_administrador) {
+   echo "<tr class='odd:bg-white even:bg-gray-50 border-b'>
+              <th
+                scope='row'
+                class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'
+              >
+              $id_turma
+              </th>
+              <td class='px-6 py-4'>$turno</td>
+              <td class='px-6 py-4'>$curso</td>
+              <td class='px-6 py-4'>$data_inicio</td>
+              <td class='px-6 py-4'>$data_termino</td>
+              <td class='px-6 py-4'>$id_professor</td>
+              <td class='px-6 py-4'>$id_administrador</td>
+              <td class='px-6 py-4'>
+                <button type='button' onclick='toggleModal('modal-id')'>
+                  <a
+                    href='#'
+                    class='font-medium text-indigo-800 hover:underline'
+                    >Adicionar Aluno</a
+                  >
+                </button>
+              </td>
+              <td class='px-6 py-4'>
+                <button type='button' onclick='toggleModal('modal-id-add')'>
+                  <a
+                    href='#'
+                    class='font-medium text-indigo-800 hover:underline'
+                    >Editar</a
+                  >
+                </button>
+              </td>
+            </tr>";
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,39 +136,12 @@
             </tr>
           </thead>
           <tbody>
-
-            <tr class="odd:bg-white even:bg-gray-50 border-b">
-              <th
-                scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                01
-              </th>
-              <td class="px-6 py-4">Manhã</td>
-              <td class="px-6 py-4">Dev. de Sistemas</td>
-              <td class="px-6 py-4">01/01/2024</td>
-              <td class="px-6 py-4">01/01/2025</td>
-              <td class="px-6 py-4">01</td>
-              <td class="px-6 py-4">01</td>
-              <td class="px-6 py-4">
-                <button type="button" onclick="toggleModal('modal-id')">
-                  <a
-                    href="#"
-                    class="font-medium text-indigo-800 hover:underline"
-                    >Adicionar Aluno</a
-                  >
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button type="button" onclick="toggleModal('modal-id-add')">
-                  <a
-                    href="#"
-                    class="font-medium text-indigo-800 hover:underline"
-                    >Editar</a
-                  >
-                </button>
-              </td>
-            </tr>
+            
+            <!-- listar turmas -->
+            
+            <?php
+              listar_turma();
+            ?>
 
             
           </tbody>
@@ -284,30 +323,30 @@
           class="flex flex-col w-full font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50"
         >
           <h1 class="text-md font-montserrat font-bold flex items-center gap-2"><span class="material-symbols-outlined">sort</span> Filtrar por:</h1>
-          <div class="flex flex-col gap-2">
-            <input
-              placeholder="TURNO"
-              class=" h-8 rounded-sm px-2 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              type="text"
-            />
-            <input
-              placeholder="ID_TURMA"
-              class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              type="number"
-            />
-            <input
-              placeholder="ID_PROFESSOR"
-              class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              type="number"
-            />
-            <input
-              placeholder="ID_ADMIN"
-              class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              type="number"
-            />
+          
+          <!-- filtrar Turma -->
+          <form action="" class="flex flex-col gap-2" method="post">
+          <select
+              class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+              name="turno"
+              >
+              <option
+                disabled
+                selected
+                class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+                value=""
+              >
+                TURNO
+              </option>
+              <option class="text-gray-700" value="Manha">Manhã</option>
+              <option class="text-gray-700" value="Tarde">Tarde</option>
+              <option class="text-gray-700" value="Noite">Noite</option>
+            </select>
+            
             <select
               class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-            >
+              name="curso"
+              >
               <option
                 disabled
                 selected
@@ -316,11 +355,12 @@
               >
                 CURSO
               </option>
-              <option class="text-gray-700" value="">Dev. de Sistemas</option>
-              <option class="text-gray-700" value="">Design Gráfico</option>
-              <option class="text-gray-700" value="">Administração</option>
+              <option class="text-gray-700" value="Analise e Desenvolvimento de Sistemas">Ana. e Desv. de Sistemas</option>
+              <option class="text-gray-700" value="Design Grafico">Design Gráfico</option>
+              <option class="text-gray-700" value="Administracao">Administração</option>
             </select>
-          </div>
+            <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
+          </form>
         </div>
       </div>
     </main>

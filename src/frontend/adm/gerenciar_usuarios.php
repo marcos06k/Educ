@@ -2,15 +2,15 @@
   
   include("../../backend/conexao.php");
         
-  function listar_alunos() {
+  function listar_Usuarios() {
 
   // realizar a listagem sem filtro (listando todos os usuarios do sistema)
   if(empty($_POST['tipo_usuario']) || empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['email'])){
   global $banco;
   
-  $query_aluno = mysqli_query($banco, "select id_aluno, nome, data_nascimento, cpf, email from aluno");
-  $query_professor  = mysqli_query($banco, "select id_professor, nome, data_nascimento, cpf, email from professor");
-  $query_administrador = mysqli_query($banco, "select id_administrador, nome, data_nascimento, cpf, email from administrador");
+  $query_aluno = mysqli_query($banco, "select id_aluno, nome, data_nascimento, cpf, email, telefone from aluno");
+  $query_professor  = mysqli_query($banco, "select id_professor, nome, data_nascimento, cpf, email, telefone from professor");
+  $query_administrador = mysqli_query($banco, "select id_administrador, nome, data_nascimento, cpf, email, telefone from administrador");
 
   $result_num_rows_aluno = mysqli_num_rows($query_aluno);
   $result_num_rows_professor = mysqli_num_rows($query_professor);
@@ -18,15 +18,15 @@
   
   for ($i=0; $i < $result_num_rows_aluno; $i++) {
       $dados_aluno = mysqli_fetch_row($query_aluno);
-      listar_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], 'Aluno');
+      imprimir_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], $dados_aluno[5], 'Aluno');
   }
   for ($i=0; $i < $result_num_rows_professor; $i++) {
     $dados_professor = mysqli_fetch_row($query_professor);
-    listar_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], 'Professor');
+    imprimir_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], $dados_professor[5], 'Professor');
   }
   for ($i=0; $i < $result_num_rows_administrador; $i++) {
     $dados_administrador = mysqli_fetch_row($query_administrador);
-    listar_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4], 'Administrador');
+    imprimir_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4], $dados_administrador[5], 'Administrador');
 }
   } else {
     // realizar a listagem com filtro (listando um usuário em especifico conforme os dados inseridos no filtro)
@@ -40,7 +40,7 @@
       $result_num_rows_aluno = mysqli_num_rows($query_aluno);
       for ($i=0; $i < $result_num_rows_aluno; $i++) { 
         $dados_aluno = mysqli_fetch_row($query_aluno);
-        listar_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], 'Aluno');
+        imprimir_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4],$dados_aluno[5], 'Aluno');
       }
 
     } else if ($_POST['tipo_usuario'] == 'option_professor') {
@@ -53,7 +53,7 @@
       $result_num_rows_professor = mysqli_num_rows($query_professor);
       for ($i=0; $i < $result_num_rows_professor; $i++) { 
         $dados_professor = mysqli_fetch_row($query_professor);
-        listar_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], 'Professor');
+        imprimir_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4],$dados_professor[5], 'Professor');
       }
     } else if($_POST['tipo_usuario'] == 'option_administrador'){
       $nome = $_POST['nome'];
@@ -65,7 +65,7 @@
       $result_num_rows_administrador = mysqli_num_rows($query_administrador);
       for ($i=0; $i < $result_num_rows_administrador; $i++) { 
         $dados_administrador = mysqli_fetch_row($query_administrador);
-        listar_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4], 'Administrador');
+        imprimir_usuarios($dados_administrador[0], $dados_administrador[1], $dados_administrador[2], $dados_administrador[3], $dados_administrador[4],$dados_administrador[5], 'Administrador');
       }
   
     }
@@ -74,7 +74,7 @@
   
 }
 
-function listar_usuarios($id, $nome, $nascimento, $cpf, $email, $tipo_usuario) {
+function imprimir_usuarios($id, $nome, $nascimento, $cpf, $email, $telefone, $tipo_usuario) {
   echo "<tr class='odd:bg-white even:bg-gray-50 border-b'>
   <th
     scope='row'
@@ -86,6 +86,7 @@ function listar_usuarios($id, $nome, $nascimento, $cpf, $email, $tipo_usuario) {
   <td class='px-6 py-4'>$cpf</td>
   <td class='px-6 py-4'>$nascimento</td>
   <td class='px-6 py-4'>$email</td>
+  <td class='px-6 py-4'>$telefone</td>
   <td class='px-6 py-4'>$tipo_usuario</td>
   <td class='px-6 py-4'>
     <button type='button' onclick='toggleModal('modal-id')'>
@@ -144,6 +145,7 @@ function listar_usuarios($id, $nome, $nascimento, $cpf, $email, $tipo_usuario) {
             <th scope="col" class="px-6 py-3">CPF</th>
             <th scope="col" class="px-6 py-3">Data de Nascimento</th>
             <th scope="col" class="px-6 py-3">Email</th>
+            <th scope="col" class="px-6 py-3">Telefone</th>
             <th scope="col" class="px-6 py-3">Tipo-Usuário</th>
             <th scope="col" class="px-6 py-3">Gerenciar</th>
           </tr>
