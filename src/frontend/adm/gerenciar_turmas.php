@@ -22,6 +22,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+    <script src="../../../scripts/resgatarIdTurma.js" defer></script>
     <script src="../../../scripts/modalDialog.js"></script>
     <script src="../../../scripts/modalDialogTurma.js"></script>
     <script src="../../../scripts/criarTurmaDialog.js"></script>
@@ -85,6 +86,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             } else {
               listar_turma($_POST['turno'],$_POST['curso']);
             }
+            
             ?>
 
             
@@ -94,7 +96,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
 
       <!-- Adicionar aluno -->
       <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+        <div class="relative w-auto my-6 mx-auto max-w-5xl">
           <!--content-->
           <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <!--header-->
@@ -107,12 +109,14 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   ×
                 </span>
               </button>
+
+              <!-- filtrar o alubo pelo cpf -->
               <form action="">
                 <label class="text-sm font-semibold" for="filtrar-cpf">Filtrar por:</label>
-                <!-- filtrar aluno -->
                 <input id="filtrar-cpf" class="ml-2 px-2 rounded-md bg-gray-50" placeholder="xxx.xxx.xxx-xx" type="text" name="" id="">
                 <button class="bg-roxo-claro text-white text-sm px-2 ml-2 py-1 rounded-sm hover:bg-violet-900" type="submit">Filtrar</button>
               </form>
+
             </div>
             <!--body-->
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -140,13 +144,12 @@ include("../../backend/administrador/adm_listar_turmas.php");
                     <td class="px-6 py-4">888.888.888-88</td>
                     <td class="px-6 py-4">arturvargaslg@gmail.com</td>
                     <td class="px-6 py-4">Aluno</td>
+                    
                     <td class="px-6 py-4">
                       <button type="button" onclick="toggleModal('modal-id')">
-                        <a
-                          href="#"
+                        <a href="#"
                           class="font-medium text-indigo-800 hover:underline"
-                          >Adicionar</a
-                        >
+                          >Adicionar</a>
                       </button>
                     </td>
                   </tr>
@@ -163,6 +166,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
           </div>
         </div>
       </div>
+      
       <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-add-backdrop"></div>
 
       <!-- Editar turma -->
@@ -310,6 +314,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             </select>
             <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
           </form>
+          
         </div>
       </div>
     </main>

@@ -1,10 +1,10 @@
 <?php
 
-function listar_usuarios($tipo_usuario, $nome, $cpf, $email)
+function listar_usuarios($tipo_usuario,  $cpf)
 {
 
   // realizar a listagem sem filtro (listando todos os usuarios do sistema)
-  if (empty($tipo_usuario) || empty($nome) || empty($cpf) || empty($email)) {
+  if (empty($tipo_usuario)  || empty($cpf) ) {
     global $banco;
 
     $query_aluno = mysqli_query($banco, "select id_aluno, nome, data_nascimento, cpf, email, telefone from aluno");
@@ -30,36 +30,36 @@ function listar_usuarios($tipo_usuario, $nome, $cpf, $email)
   } else 
     // realizar a listagem com filtro (listando um usuário em especifico conforme os dados inseridos no filtro)
     if ($tipo_usuario == 'option_aluno') {
-      $nome = $_POST['nome'];
+      
       $cpf = $_POST['cpf'];
-      $email = $_POST['email'];
+      
 
       global $banco;
-      $query_aluno = mysqli_query($banco, "select id_aluno, nome, sobrenome, data_nascimento, cpf, email from aluno where nome='$nome' and cpf='$cpf' and email='$email'; ");
+      $query_aluno = mysqli_query($banco, "select id_aluno, nome, sobrenome, data_nascimento, cpf, email from aluno where  cpf='$cpf' ");
       $result_num_rows_aluno = mysqli_num_rows($query_aluno);
       for ($i = 0; $i < $result_num_rows_aluno; $i++) {
         $dados_aluno = mysqli_fetch_row($query_aluno);
         imprimir_usuarios($dados_aluno[0], $dados_aluno[1], $dados_aluno[2], $dados_aluno[3], $dados_aluno[4], $dados_aluno[5], 'Aluno');
       }
     } else if ($tipo_usuario == 'option_professor') {
-      $nome = $_POST['nome'];
+      
       $cpf = $_POST['cpf'];
-      $email = $_POST['email'];
+      
 
       global $banco;
-      $query_professor  = mysqli_query($banco, "select id_professor, nome, sobrenome, data_nascimento, cpf, email from professor where nome='$nome' and cpf='$cpf' and email='$email';");
+      $query_professor  = mysqli_query($banco, "select id_professor, nome, sobrenome, data_nascimento, cpf, email from professor where cpf='$cpf' ;");
       $result_num_rows_professor = mysqli_num_rows($query_professor);
       for ($i = 0; $i < $result_num_rows_professor; $i++) {
         $dados_professor = mysqli_fetch_row($query_professor);
         imprimir_usuarios($dados_professor[0], $dados_professor[1], $dados_professor[2], $dados_professor[3], $dados_professor[4], $dados_professor[5], 'Professor');
       }
     } else if ($tipo_usuario == 'option_administrador') {
-      $nome = $_POST['nome'];
+      
       $cpf = $_POST['cpf'];
-      $email = $_POST['email'];
+      
 
       global $banco;
-      $query_administrador = mysqli_query($banco, "select id_administrador, nome, sobrenome, data_nascimento, cpf, email from administrador where nome='$nome' and cpf='$cpf' and email='$email';");
+      $query_administrador = mysqli_query($banco, "select id_administrador, nome, sobrenome, data_nascimento, cpf, email from administrador where and cpf='$cpf' ;");
       $result_num_rows_administrador = mysqli_num_rows($query_administrador);
       for ($i = 0; $i < $result_num_rows_administrador; $i++) {
         $dados_administrador = mysqli_fetch_row($query_administrador);

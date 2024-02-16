@@ -56,10 +56,10 @@ include("../../backend/administrador/adm_listar_usuarios.php");
         <tbody>
 
           <?php
-          if (empty($_POST['tipo_usuario']) || empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['email']) ){
-            listar_usuarios(null, null, null, null);
+          if (empty($_POST['tipo_usuario']) || empty($_POST['cpf']) ) {
+            listar_usuarios(null, null);
           } else {
-            listar_usuarios($_POST['tipo_usuario'], $_POST['nome'], $_POST['cpf'], $_POST['email']);
+            listar_usuarios($_POST['tipo_usuario'], $_POST['cpf']);
           }
           
           ?>
@@ -126,9 +126,7 @@ include("../../backend/administrador/adm_listar_usuarios.php");
               <option class="text-gray-700" value="option_professor">Professor</option>
               <option class="text-gray-700" value="option_administrador">Administrador</option>
             </select>
-            <input name="nome" placeholder="NOME" class=" h-8 rounded-sm px-2 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="text" />
             <input name="cpf" placeholder="CPF" class=" h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="number" />
-            <input name="email" placeholder="EMAIL" class="h-8 rounded-sm px-2 mb-3 text-sm focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" type="email" />
             <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
           </form>
         
