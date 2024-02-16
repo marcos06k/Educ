@@ -41,7 +41,7 @@ include("../../backend/conexao.php");
               <td class='px-6 py-4'>$id_professor</td>
               <td class='px-6 py-4'>$id_administrador</td>
               <td class='px-6 py-4'>
-                <button type='button' onclick='toggleModal('modal-id')'>
+                <button type='button' onclick=\"toggleModal('modal-id')\">
                   <a
                     href='#'
                     class='font-medium text-indigo-800 hover:underline'
@@ -50,7 +50,7 @@ include("../../backend/conexao.php");
                 </button>
               </td>
               <td class='px-6 py-4'>
-                <button type='button' onclick='toggleModal('modal-id-add')'>
+                <button type='button' onclick=\"toggleModal('modal-id-add')\">
                   <a
                     href='#'
                     class='font-medium text-indigo-800 hover:underline'

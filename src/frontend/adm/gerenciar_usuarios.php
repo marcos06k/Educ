@@ -153,7 +153,7 @@ function imprimir_usuarios($id, $nome, $nascimento, $cpf, $email, $telefone, $ti
         <tbody>
 
           <?php
-           listar_alunos();
+           listar_usuarios();
           ?>
 
         </tbody>
