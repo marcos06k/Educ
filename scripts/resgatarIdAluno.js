@@ -1,15 +1,13 @@
-function pegarIdTurma(botao) {
-    console.log("teste Um");
+function pegarIdAluno(botao) {
     // Acessa o elemento <tr> (linha) que contém o botão clicado
     var linha = botao.closest('tr');
 
     // Encontra o elemento <td> com o ID 'linha_id_turma' dentro da mesma linha
-    var tdIdTurma = linha.querySelector('#linha_id_turma');
-    console.log("seletor:" + tdIdTurma);
+    var tdIdAluno = linha.querySelector('#linha_id_aluno');
 
     // Pega o texto dentro do elemento <td> encontrado
-    var textoIdTurma = tdIdTurma.innerText.trim();
-    console.log(textoIdTurma);
+    var textoIdAluno = tdIdAluno.innerText.trim();
+    console.log(textoIdAluno);
 
 
 
@@ -19,14 +17,14 @@ function pegarIdTurma(botao) {
         type: 'POST',
         data: {
             /* adiciona a variavel com o número a requisicao*/
-            textoTurma: textoIdTurma
+            'textoAluno': textoIdAluno
         },
         dataType: 'json',
         success: function (data) {
-            alert('Resultado a: ' + data);
+            alert('Resultado: ' + data);
         },
         error: function (request, error) {
-            alert("Resultado b: " + JSON.stringify(request));
+            alert("Resultado: " + JSON.stringify(request));
         }
     });
 }

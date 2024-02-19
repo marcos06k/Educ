@@ -22,7 +22,9 @@ include("../../backend/administrador/adm_listar_turmas.php");
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" ></script>
     <script src="../../../scripts/resgatarIdTurma.js" defer></script>
+    <script src="../../../scripts/resgatarIdAluno.js" defer></script>
     <script src="../../../scripts/modalDialog.js"></script>
     <script src="../../../scripts/modalDialogTurma.js"></script>
     <script src="../../../scripts/criarTurmaDialog.js"></script>
@@ -83,6 +85,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             <?php
             if ( empty($_POST['turno'])  || empty($_POST['curso']) ) {
               listar_turma(null, null);
+              
             } else {
               listar_turma($_POST['turno'],$_POST['curso']);
             }
@@ -93,7 +96,6 @@ include("../../backend/administrador/adm_listar_turmas.php");
           </tbody>
         </table>
       </div>
-
       <!-- Adicionar aluno -->
       <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
         <div class="relative w-auto my-6 mx-auto max-w-5xl">
@@ -111,9 +113,9 @@ include("../../backend/administrador/adm_listar_turmas.php");
               </button>
 
               <!-- filtrar o alubo pelo cpf -->
-              <form action="">
-                <label class="text-sm font-semibold" for="filtrar-cpf">Filtrar por:</label>
-                <input id="filtrar-cpf" class="ml-2 px-2 rounded-md bg-gray-50" placeholder="xxx.xxx.xxx-xx" type="text" name="" id="">
+              <form action="" method="post">
+                <label class="text-sm font-semibold" for="filtrar-cpf">Filtrar por CPF:</label>
+                <input id="filtrar-cpf" class="ml-2 px-2 rounded-md bg-gray-50" placeholder="xxx.xxx.xxx-xx" type="text" name="cpf_aluno" id="">
                 <button class="bg-roxo-claro text-white text-sm px-2 ml-2 py-1 rounded-sm hover:bg-violet-900" type="submit">Filtrar</button>
               </form>
 
@@ -132,27 +134,10 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Apresentar aluno para adiciona-lo na turma -->
-                  <tr class="odd:bg-white even:bg-gray-50 border-b">
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                    >
-                      01
-                    </th>
-                    <td class="px-6 py-4">Artur Vargas</td>
-                    <td class="px-6 py-4">888.888.888-88</td>
-                    <td class="px-6 py-4">arturvargaslg@gmail.com</td>
-                    <td class="px-6 py-4">Aluno</td>
-                    
-                    <td class="px-6 py-4">
-                      <button type="button" onclick="toggleModal('modal-id')">
-                        <a href="#"
-                          class="font-medium text-indigo-800 hover:underline"
-                          >Adicionar</a>
-                      </button>
-                    </td>
-                  </tr>
+                  <?php
+                  $valor;
+                   filtrar_aluno($_POST['cpf_aluno']);
+                  ?>
                      
                 </tbody>
               </table>
