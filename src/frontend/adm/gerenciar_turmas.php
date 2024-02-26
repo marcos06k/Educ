@@ -22,9 +22,6 @@ include("../../backend/administrador/adm_listar_turmas.php");
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" ></script>
-    <script src="../../../scripts/resgatarIdTurma.js" defer></script>
-    <script src="../../../scripts/resgatarIdAluno.js" defer></script>
     <script src="../../../scripts/modalDialog.js"></script>
     <script src="../../../scripts/modalDialogTurma.js"></script>
     <script src="../../../scripts/criarTurmaDialog.js"></script>
@@ -134,16 +131,32 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   </tr>
                 </thead>
                 <tbody>
+                  
                   <?php
-                  $valor;
-                   filtrar_aluno($_POST['cpf_aluno']);
+                  if(!empty($_POST['cpf_aluno'])){
+
+                    filtrar_aluno($_POST['cpf_aluno']);
+                  } else {
+                    echo "<div class='px-6 py-3'>Necessário filtrar um usuário primeiro</div>";
+                  }
                   ?>
+                     
                      
                 </tbody>
               </table>
             </div>
             <!--footer-->
             <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+              <!-- form de confirmação -->
+              <form   action='../../backend/administrador/adm_listar_turmas.php' method="post">
+
+                <label class="text-sm font-semibold" for="id_turma_text">ID turma</label>
+                <input class="ml-2 px-2 rounded-md bg-gray-50" id='id_turma_text' type='number' name='id_turma_test'>
+                
+                <label class="text-sm font-semibold" for="id_turma_text">ID usuario</label>
+                <input class="ml-2 px-2 rounded-md bg-gray-50" id='id_usuario_text' type='number' name='id_usuario_test'>
+                <button class="bg-roxo-claro text-white text-sm px-2 ml-2 py-1 rounded-sm hover:bg-violet-900" type="submit">Confirmar</button>
+              </form>
               <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id')">
                 Fechar
               </button>
@@ -173,6 +186,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             <!--body-->
                 <div class="flex flex-col p-6 gap-6">
                   
+                  <form action="">
                   <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno">
                   
                   <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Curso">
@@ -184,6 +198,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400"" type="date" placeholder="Data Término">
                   
                   <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor">
+                  </form>
                 </div>
             <!--footer-->
             <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
