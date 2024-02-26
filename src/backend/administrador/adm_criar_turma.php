@@ -1,4 +1,6 @@
 <?php
+
+
 include('../conexao.php');
 session_start();
 
@@ -8,18 +10,11 @@ $query_idAdministrador = mysqli_query($banco, "select id_administrador from admi
 $idAdministrador = mysqli_fetch_row($query_idAdministrador);
 
 $turno = $_POST['turno'];
- $curso = $_POST['curso'];
- $data_inicio = $_POST['data_inicio'];
- $data_termino = $_POST['data_termino'];
- $id_professor = $_POST['id_professor'];
+$curso = $_POST['curso'];
+$data_inicio = $_POST['data_inicio'];
+$data_termino = $_POST['data_termino'];
+$id_professor = $_POST['id_professor'];
 
+$sql_query = mysqli_query($banco, "insert into turma values (null, '$turno', '$curso', '$data_inicio', '$data_termino', '$id_professor', '$idAdministrador[0]');");
 
- 
-
-$sql = mysqli_query($banco, "insert into turma values (null, '$turno', '$curso', '$data_inicio', '$data_termino', '$id_professor', '$idAdministrador[0]');");
-if ($sql) {
-    echo "turma cadastrada com sucesso!";
-} else {
-    echo "Erro no cadastrar turma" . $banco->error;
-}
 ?>

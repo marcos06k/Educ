@@ -1,7 +1,6 @@
 <?php
 include("../../backend/conexao.php");
 include("../../backend/administrador/adm_listar_turmas.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +126,6 @@ include("../../backend/administrador/adm_listar_turmas.php");
                     <th scope="col" class="px-6 py-3">CPF</th>
                     <th scope="col" class="px-6 py-3">Email</th>
                     <th scope="col" class="px-6 py-3">Tipo-Usuário</th>
-                    <th scope="col" class="px-6 py-3">Gerenciar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -184,31 +182,35 @@ include("../../backend/administrador/adm_listar_turmas.php");
               </button>
             </div>
             <!--body-->
-                <div class="flex flex-col p-6 gap-6">
+                
                   
-                  <form action="">
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno">
+                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_aluno.php" method="post">
+
+                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirmar id turma" name="confirmar_id_turma">
                   
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Curso">
+                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno" name="turno">
+                  
+                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Curso" name="curso">
                   
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_inicio">Data de Início</label>
-                  <input id="editar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio">
+                  <input id="editar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio" name="data_inicio">
                   
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_termino">Data de Termino</label>
-                  <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400"" type="date" placeholder="Data Término">
+                  <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Término" name="data_termino">
                   
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor">
-                  </form>
-                </div>
-            <!--footer-->
-            <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-              <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id-add')">
-                Fechar
-              </button>
-              <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="button" onclick="toggleModal('modal-id-add')">
-                Salvar
-              </button>
-            </div>
+                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor" name="id_professor">
+                
+                
+              <!--footer-->
+              <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id-add')">
+                  Fechar
+                </button>
+                <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="submit" onclick="toggleModal('modal-id-add')">
+                  Salvar
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -230,34 +232,44 @@ include("../../backend/administrador/adm_listar_turmas.php");
               </button>
             </div>
             <!--body-->
-                <div class="flex flex-col p-6 gap-6">
-                  
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno">
-                  
-                  <select class="bg-fundo-claro focus:outline-none p-2 text-gray-400">
-                    <option value="" selected disabled>Curso</option>
-                    <option value="">Dev. de Sistemas</option>
-                    <option value="">Administração</option>
-                    <option value="">Design</option>
-                  </select>
-                  
-                  <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="criar_data_inicio">Data de Início</label>
-                  <input id="criar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio">
-                  
-                  <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="criar_data_termino">Data de Termino</label>
-                  <input id="criar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400"" type="date" placeholder="Data Término">
-                  
-                  <input class="bg-fundo-claro focus:outline-none p-2 " type="text" placeholder="ID do Professor">
-                </div>
-            <!--footer-->
-            <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-              <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id-turma')">
-                Fechar
-              </button>
-              <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="button" onclick="toggleModal('modal-id-turma')">
-                Criar
-              </button>
-            </div>
+                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_criar_turma.php" method="post" >
+                
+                  <select class="bg-fundo-claro focus:outline-none p-2 text-gray-400" name="turno">
+                      <option value="" selected disabled>Turno</option>
+                      <option value="Manha">Manhã</option>
+                      <option value="Tarde">Tarde</option>
+                      <option value="Noite">Noite</option>
+                    </select>
+                    
+                    <select class="bg-fundo-claro focus:outline-none p-2 text-gray-400" name="curso">
+                      <option value="" selected disabled>Curso</option>
+                      <option value="Desenvolvimento de Sistema">Dev. de Sistemas</option>
+                      <option value="Administração">Administração</option>
+                      <option value="Design">Design</option>
+                    </select>
+                    
+                    <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="criar_data_inicio">Data de Início</label>
+                    <input id="criar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio" name="data_inicio">
+                    
+                    <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="criar_data_termino">Data de Termino</label>
+                    <input id="criar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400"" type="date" placeholder="Data Término" name="data_termino">
+                    
+                    <input class="bg-fundo-claro focus:outline-none p-2 " type="text" placeholder="ID do Professor" name="id_professor">
+                
+              <!--footer-->
+              <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id-turma')">
+                  Fechar
+                </button>
+                <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="submit" onclick="toggleModal('modal-id-turma')">
+                  Criar
+                </button>
+              </div>
+            </form>
+
+            
+            
+          
           </div>
         </div>
       </div>
@@ -279,40 +291,40 @@ include("../../backend/administrador/adm_listar_turmas.php");
           
           <!-- filtrar Turma -->
           <form action="" class="flex flex-col gap-2" method="post">
-          <select
-              class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              name="turno"
-              >
-              <option
-                disabled
-                selected
-                class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-                value=""
-              >
-                TURNO
-              </option>
-              <option class="text-gray-700" value="Manha">Manhã</option>
-              <option class="text-gray-700" value="Tarde">Tarde</option>
-              <option class="text-gray-700" value="Noite">Noite</option>
-            </select>
-            
             <select
-              class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-              name="curso"
-              >
-              <option
-                disabled
-                selected
-                class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
-                value=""
-              >
-                CURSO
-              </option>
-              <option class="text-gray-700" value="Analise e Desenvolvimento de Sistemas">Ana. e Desv. de Sistemas</option>
-              <option class="text-gray-700" value="Design Grafico">Design Gráfico</option>
-              <option class="text-gray-700" value="Administracao">Administração</option>
-            </select>
-            <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
+                class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+                name="turno"
+                >
+                <option
+                  disabled
+                  selected
+                  class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+                  value=""
+                >
+                  TURNO
+                </option>
+                <option class="text-gray-700" value="Manha">Manhã</option>
+                <option class="text-gray-700" value="Tarde">Tarde</option>
+                <option class="text-gray-700" value="Noite">Noite</option>
+              </select>
+              
+              <select
+                class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+                name="curso"
+                >
+                <option
+                  disabled
+                  selected
+                  class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro"
+                  value=""
+                >
+                  CURSO
+                </option>
+                <option class="text-gray-700" value="Desenvolvimento de Sistemas">Ana. e Desv. de Sistemas</option>
+                <option class="text-gray-700" value="Design Grafico">Design Gráfico</option>
+                <option class="text-gray-700" value="Administracao">Administração</option>
+              </select>
+              <input type="submit" class="h-8 rounded-sm px-2 mb-3 text-white focus:outline-none focus:ring-1 focus:ring-purple-600 bg-roxo-claro hover:bg-purple-950">
           </form>
           
         </div>
