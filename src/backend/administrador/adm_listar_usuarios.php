@@ -85,7 +85,7 @@ function imprimir_usuarios($id, $nome, $nascimento, $cpf, $email, $telefone, $ti
           <td class='px-6 py-4'>$telefone</td>
           <td class='px-6 py-4'>$tipo_usuario</td>
           <td class='px-6 py-4'>
-            <button type='button' onclick='toggleModal('modal-id')'>
+            <button type='button' onclick=\"toggleModal('modal-id')\">
               <a
                 href='#'
                 class='font-medium text-indigo-800 hover:underline'

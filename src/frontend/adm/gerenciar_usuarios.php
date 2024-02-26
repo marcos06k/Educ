@@ -84,27 +84,28 @@ include("../../backend/administrador/adm_listar_usuarios.php");
             </button>
           </div>
           <!--body-->
-          <div class="flex flex-col p-6 gap-6">
+          <form class="flex flex-col p-6 gap-6" method="post" action="../../backend/administrador/adm_editar_dados_usuarios.php">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Nome">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Nome" name="novo_nome">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Novo CPF">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Novo CPF" name="novo_cpf">
 
-            <input class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Novo Data de Nascimento">
+            <input class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Novo Data de Nascimento" name="nova_data_nascimento">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="email" placeholder="Novo Email">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="email" placeholder="Novo Email" name="novo_email">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Tipo-Usuário">
-          </div>
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Tipo-Usuário" name="novo_tipo_usuario">
+        
           <!--footer-->
           <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
             <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:underline" type="button" onclick="toggleModal('modal-id')">
               Fechar
             </button>
-            <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="button" onclick="toggleModal('modal-id')">
+            <button class="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-violet-700" type="submit" onclick="toggleModal('modal-id')">
               Salvar
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>

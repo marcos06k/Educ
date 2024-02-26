@@ -1,6 +1,7 @@
 <?php
 include("../../backend/conexao.php");
 include("../../backend/administrador/adm_listar_turmas.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -184,7 +185,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             <!--body-->
                 
                   
-                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_aluno.php" method="post">
+                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_turma.php" method="post">
 
                   <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirmar id turma" name="confirmar_id_turma">
                   
