@@ -2,6 +2,12 @@
 
 include("../../backend/conexao.php");
 include("../../backend/administrador/adm_listar_usuarios.php");
+include("../../backend/administrador/adm_editar_dados_usuarios.php");
+
+if(!empty($_POST['confirmar_id']) || !empty($_POST['confirmar_usuario']) || !empty($_POST['novo_nome']) || !empty($_POST['novo_sobrenome']) || !empty($_POST['novo_cpf']) || !empty($_POST['novo_telefone']) || !empty($_POST['nova_data_nascimento']) || !empty($_POST['novo_email']) || !empty($_POST['nova_senha']) ){
+
+  atualizar_dados_usuario($_POST['confirmar_usuario'], $_POST['confirmar_id'], $_POST['novo_nome'], $_POST['novo_sobrenome'], $_POST['novo_cpf'], $_POST['novo_telefone'], $_POST['nova_data_nascimento'], $_POST['novo_email'], $_POST['nova_senha']);
+} 
 ?>
 
 <!DOCTYPE html>
@@ -84,17 +90,26 @@ include("../../backend/administrador/adm_listar_usuarios.php");
             </button>
           </div>
           <!--body-->
-          <form class="flex flex-col p-6 gap-6" method="post" action="../../backend/administrador/adm_editar_dados_usuarios.php">
+          <form class="flex flex-col p-6 gap-6" method="post" action="">
 
+            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Confirme o ID" name="confirmar_id">
+
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirme o tipo do usuário" name="confirmar_usuario">
+            
             <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Nome" name="novo_nome">
 
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Sobrenome" name="novo_sobrenome">
+
             <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Novo CPF" name="novo_cpf">
+
+            <input class="bg-fundo-claro focus:outline-none p-2" type="tel" placeholder="Novo Telefone" name="novo_telefone">
 
             <input class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Novo Data de Nascimento" name="nova_data_nascimento">
 
             <input class="bg-fundo-claro focus:outline-none p-2" type="email" placeholder="Novo Email" name="novo_email">
+            
+            <input class="bg-fundo-claro focus:outline-none p-2" type="password" placeholder="Nova Senha" name="nova_senha">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Tipo-Usuário" name="novo_tipo_usuario">
         
           <!--footer-->
           <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -118,7 +133,7 @@ include("../../backend/administrador/adm_listar_usuarios.php");
       <div class="flex flex-col w-full font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50">
         <h1 class="text-md font-montserrat font-bold flex items-center gap-2"><span class="material-symbols-outlined">sort</span> Filtrar por:</h1>
         
-          <form action="gerenciar_usuarios.php" class="flex flex-col gap-2" method="post">
+          <form action="" class="flex flex-col gap-2" method="post">
              <select name="tipo_usuario" class=" text-gray-400 h-8 rounded-sm px-2 text-sm  focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro">
               <option disabled selected class="text-gray-700 border-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-600 bg-fundo-claro" value="">
                 TIPO-USUÁRIO
