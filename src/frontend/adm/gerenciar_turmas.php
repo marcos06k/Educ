@@ -7,6 +7,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -185,7 +186,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
             <!--body-->
                 
                   
-                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_turma.php" method="post">
+                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_turma.php" method="post" id="form_editar_turma">
 
                   <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirmar id turma" name="confirmar_id_turma">
                   
@@ -331,5 +332,6 @@ include("../../backend/administrador/adm_listar_turmas.php");
         </div>
       </div>
     </main>
+    <script src="../../../scripts/resgatarIdTurma.js"></script>
   </body>
 </html>

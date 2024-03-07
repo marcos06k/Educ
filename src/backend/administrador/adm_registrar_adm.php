@@ -8,6 +8,7 @@ $data_nascimento = $_POST['data_nascimento'];
 $cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
+$curso = $_POST['curso'];
 //password_hash criptografa a senha e manda pro banco 
 $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 

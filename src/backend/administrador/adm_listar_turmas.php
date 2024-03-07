@@ -60,7 +60,7 @@ function imprimir_turma($id_turma, $turno,  $curso, $data_inicio, $data_termino,
               </td>
 
               <td class='px-6 py-4'>
-                <button type='button' onclick=\"toggleModal('modal-id-add')\">
+                <button type='button' onclick=\"toggleModal('modal-id-add'), pegarIdTurma(this)\">
                   <a
                     href='#'
                     class='font-medium text-indigo-800 hover:underline'
