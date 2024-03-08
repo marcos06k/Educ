@@ -36,18 +36,6 @@ function pegarIdTurma(botao) {
             }
             
         });
-
-       
-
-        function enviarDados() {
-            
-
-        }
-
-        function atualizarRedirecionarPagina() {
-            location.href = location.href;
-            window.location.href = 'gerenciar_turmas.php';
-        }
     })
   
 }

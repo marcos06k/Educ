@@ -49,7 +49,7 @@ function imprimir_turma($id_turma, $turno,  $curso, $data_inicio, $data_termino,
               <td class='px-6 py-4'>
                 
               
-                <button name='acao' id='btn-executar' type='submit' onclick=\"toggleModal('modal-id')\">
+                <button name='acao' id='btn-executar' type='submit' onclick=\"toggleModal('modal-id'), \">
                   <a
                     href='#'
                     class='font-medium text-indigo-800 hover:underline'
@@ -100,6 +100,15 @@ function imprimir_aluno($id_aluno, $nome, $cpf, $email, $tipo_usuario)
     <td class='px-6 py-4'>$cpf</td>
     <td class='px-6 py-4'>$email</td>
     <td class='px-6 py-4'> $tipo_usuario</td>
+    <td class='px-6 py-4'>
+                      <button type='button' onclick=\"toggleModal('modal-id'), resgatarIdTurma_idAluno()\"> 
+                        <a
+                          href='#'
+                          class='font-medium text-indigo-800 hover:underline'
+                          >Adicionar</a
+                        >
+                      </button>
+                    </td>
   </tr>
   
   ";
