@@ -20,13 +20,16 @@ function pegarIdTurma(botao) {
             type: 'POST',
             data: {
                 /* adiciona a variavel com o número a requisicao*/
-                'textoIdTurma': textoIdTurma
+                'textoIdTurma': textoIdTurma,
+                'turno': document.getElementById("turno").value,
+                'curso':  document.getElementById("curso").value,
+                'data_inicio': document.getElementById("editar_data_inicio").value,
+                'data_termino': document.getElementById("editar_data_termino").value, 
+                'id_professor': document.getElementById("id_professor").value
             },
             dataType: 'json',
             success: function (data) {
                 alert('Resultado Sucesso: ' + data);
-                enviarDados()
-                atualizarRedirecionarPagina()
             },
             error: function (request, error) {
                 alert("Resultado: " + JSON.stringify(request));
@@ -37,14 +40,8 @@ function pegarIdTurma(botao) {
        
 
         function enviarDados() {
-            // Obtenha os dados do formulário
-            var formData = new FormData(document.getElementById('form_editar_turma'));
+            
 
-            // Use a função fetch para enviar os dados para o script PHP
-            fetch('../../backend/administrador/adm_editar_dados_turma.php', {
-                method: 'post',
-                body: formData
-            })
         }
 
         function atualizarRedirecionarPagina() {

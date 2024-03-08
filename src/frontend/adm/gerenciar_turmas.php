@@ -186,13 +186,13 @@ include("../../backend/administrador/adm_listar_turmas.php");
             <!--body-->
                 
                   
-                <form class="flex flex-col p-6 gap-6" action="../../backend/administrador/adm_editar_dados_turma.php" method="post" id="form_editar_turma">
+                <form class="flex flex-col p-6 gap-6"  method="post" id="form_editar_turma">
 
                   <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirmar id turma" name="confirmar_id_turma">
                   
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno" name="turno">
+                  <input id="turno" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno" name="turno">
                   
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Curso" name="curso">
+                  <input id="curso" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Curso" name="curso">
                   
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_inicio">Data de Início</label>
                   <input id="editar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio" name="data_inicio">
@@ -200,7 +200,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_termino">Data de Termino</label>
                   <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Término" name="data_termino">
                   
-                  <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor" name="id_professor">
+                  <input id="id_professor" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor" name="id_professor">
                 
                 
               <!--footer-->
