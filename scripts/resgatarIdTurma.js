@@ -8,7 +8,8 @@ function pegarIdTurma(botao) {
 
     // Pega o texto dentro do elemento <td> encontrado
     var textoIdTurma = tdIdTurma.innerText.trim()
-    console.log(textoIdTurma)
+    console.log("id:" + textoIdTurma)
+    
 
     var form = document.getElementById('form_editar_turma')
 

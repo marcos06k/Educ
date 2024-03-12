@@ -1,9 +1,4 @@
 <?php
-if(!empty($_POST['id_turma_test']) || !empty( $_POST['id_usuario_test'])){
-  adicionar_aluno_turma($_POST['id_turma_test'], $_POST['id_usuario_test']);
-}
-
-
 
 // Função para listar as turmas na tabela 
 function listar_turma($turno, $curso)
@@ -47,16 +42,13 @@ function imprimir_turma($id_turma, $turno,  $curso, $data_inicio, $data_termino,
               <td class='px-6 py-4'>$id_professor</td>
               <td class='px-6 py-4'>$id_administrador</td>
               <td class='px-6 py-4'>
-                
-              
-                <button name='acao' id='btn-executar' type='submit' onclick=\"toggleModal('modal-id'), \">
+                <button name='acao' id='btn-executar' type='button' onclick=\"toggleModal('modal-id'), pegarIdTurma_aluno(this) \">
                   <a
                     href='#'
                     class='font-medium text-indigo-800 hover:underline'
                     >Adicionar Aluno</a
                   >
                 </button>
-              
               </td>
 
               <td class='px-6 py-4'>
@@ -101,7 +93,7 @@ function imprimir_aluno($id_aluno, $nome, $cpf, $email, $tipo_usuario)
     <td class='px-6 py-4'>$email</td>
     <td class='px-6 py-4'> $tipo_usuario</td>
     <td class='px-6 py-4'>
-                      <button type='button' onclick=\"toggleModal('modal-id'), resgatarIdTurma_idAluno()\"> 
+                      <button type='button' onclick=\"toggleModal('modal-id')\"> 
                         <a
                           href='#'
                           class='font-medium text-indigo-800 hover:underline'
@@ -114,10 +106,4 @@ function imprimir_aluno($id_aluno, $nome, $cpf, $email, $tipo_usuario)
   ";
 }
 
-// Adicionar o aluno na turma conforme o que vem da opçao Gerenciar(adicionar Aluno) 
-function adicionar_aluno_turma($valor_id_turma , $valor_id_usuario){
-  include('../conexao.php');
 
-  //query pro BD para inserir na tabela turma_aluno
-  $query_test = mysqli_query($banco, "insert into turma_aluno values (null, '$valor_id_turma', '$valor_id_usuario');");
-}

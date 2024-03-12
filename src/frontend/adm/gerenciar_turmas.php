@@ -321,7 +321,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
         </div>
       </div>
     </main>
-    <script src="../../../scripts/resgatarIdTurma.js"></script>
     <script src="../../../scripts/resgatarIdTurma_idAluno.js"></script>
+    <script src="../../../scripts/resgatarIdTurma.js"></script>
   </body>
 </html>
