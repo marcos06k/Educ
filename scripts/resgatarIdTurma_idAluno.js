@@ -13,7 +13,7 @@ function pegarIdTurma_aluno(botao) {
     // Quando clicar no botão para adc. aluno, faz o evento
     button.addEventListener('click', function (event) {
         event.preventDefault();
-
+        console.log("Cliquei no botao do alubo");
         // Acessa o elemento <tr> (linha) que contém o botão clicado
         let linha = button.closest('tr')
         // Encontra o elemento <td> com o ID 'linha_id_aluno' dentro da mesma linha
@@ -27,7 +27,7 @@ function pegarIdTurma_aluno(botao) {
 
         $.ajax({
 
-            url: '../../backend/administrador/adm_adicionar_aluno_turma.php',
+            url: '../../backend-pi/administrador/adm_adicionar_aluno_turma.php',
             type: 'POST',
             data: {
                 /* adiciona a variavel com o número a requisicao*/
