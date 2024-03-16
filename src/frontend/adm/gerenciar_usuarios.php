@@ -2,18 +2,14 @@
 
 include("../../backend/conexao.php");
 include("../../backend/administrador/adm_listar_usuarios.php");
-include("../../backend/administrador/adm_editar_dados_usuarios.php");
 
-if(!empty($_POST['confirmar_id']) || !empty($_POST['confirmar_usuario']) || !empty($_POST['novo_nome']) || !empty($_POST['novo_sobrenome']) || !empty($_POST['novo_cpf']) || !empty($_POST['novo_telefone']) || !empty($_POST['nova_data_nascimento']) || !empty($_POST['novo_email']) || !empty($_POST['nova_senha']) ){
-
-  atualizar_dados_usuario($_POST['confirmar_usuario'], $_POST['confirmar_id'], $_POST['novo_nome'], $_POST['novo_sobrenome'], $_POST['novo_cpf'], $_POST['novo_telefone'], $_POST['nova_data_nascimento'], $_POST['novo_email'], $_POST['nova_senha']);
-} 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
@@ -90,25 +86,31 @@ if(!empty($_POST['confirmar_id']) || !empty($_POST['confirmar_usuario']) || !emp
             </button>
           </div>
           <!--body-->
-          <form class="flex flex-col p-6 gap-6" method="post" action="">
+          <form class="flex flex-col p-6 gap-6" method="post" id="form_editar_aluno">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Confirme o ID" name="confirmar_id">
-
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Confirme o tipo do usuário" name="confirmar_usuario">
+            <select
+            class="bg-fundo-claro focus:outline-none p-2"
+            id="tipo_usuario"
+            >
+              <option disabled selected value="">Tipo Usuário </option>
+              <option class="text-gray-700" value="aluno">Aluno</option>
+              <option class="text-gray-700" value="professor">Professor</option>
+              <option class="text-gray-700" value="administrador">Administrador</option>
+            </select>
             
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Nome" name="novo_nome">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Nome" id="novo_nome">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Sobrenome" name="novo_sobrenome">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Novo Sobrenome" id="novo_sobrenome">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Novo CPF" name="novo_cpf">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="number" placeholder="Novo CPF" id="novo_cpf">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="tel" placeholder="Novo Telefone" name="novo_telefone">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="tel" placeholder="Novo Telefone" id="novo_telefone">
 
-            <input class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Novo Data de Nascimento" name="nova_data_nascimento">
+            <input class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Novo Data de Nascimento" id="nova_data_nascimento">
 
-            <input class="bg-fundo-claro focus:outline-none p-2" type="email" placeholder="Novo Email" name="novo_email">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="email" placeholder="Novo Email" id="novo_email">
             
-            <input class="bg-fundo-claro focus:outline-none p-2" type="password" placeholder="Nova Senha" name="nova_senha">
+            <input class="bg-fundo-claro focus:outline-none p-2" type="password" placeholder="Nova Senha" id="nova_senha">
 
         
           <!--footer-->
@@ -149,6 +151,7 @@ if(!empty($_POST['confirmar_id']) || !empty($_POST['confirmar_usuario']) || !emp
       </div>
     </div>
   </main>
+  <script src="../../../scripts/resgatarIdAluno.js"></script>
 </body>
 
 </html>

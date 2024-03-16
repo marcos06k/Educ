@@ -179,17 +179,17 @@ include("../../backend/administrador/adm_listar_turmas.php");
                   
                 <form class="flex flex-col p-6 gap-6"  method="post" id="form_editar_turma">
 
-                  <input id="turno" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno" name="turno">
+                  <input id="turno" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Turno" >
                   
-                  <input id="curso" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Curso" name="curso">
+                  <input id="curso" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="Curso" >
                   
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_inicio">Data de Início</label>
-                  <input id="editar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio" name="data_inicio">
+                  <input id="editar_data_inicio" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Inicio" >
                   
                   <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="editar_data_termino">Data de Termino</label>
-                  <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Término" name="data_termino">
+                  <input id="editar_data_termino" class="bg-fundo-claro focus:outline-none p-2 text-gray-400" type="date" placeholder="Data Término" >
                   
-                  <input id="id_professor" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor" name="id_professor">
+                  <input id="id_professor" class="bg-fundo-claro focus:outline-none p-2" type="text" placeholder="ID Professor" >
                 
                 
               <!--footer-->

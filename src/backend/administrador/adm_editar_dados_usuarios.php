@@ -1,27 +1,30 @@
 <?php
 
-function atualizar_dados_usuario($confirmar_tipo_usuario, $confirmar_id, $novo_nome, $novo_sobrenome, $novo_cpf, $novo_telefone, $nova_data_nascimento, $novo_email, $nova_senha){
-    global $banco;
+include('../conexao.php');
 
-     // verificar qual é o tipo de tabela no banco de dados que tera que pegar os valores do usuário através da confirmação do tipo do usuário
-     
-        // Encontrar o usuário através da confirmação do id 
-        $tabela = $confirmar_tipo_usuario; //Diz qual a tabela no banco de dados que será encontrado o usuário
-        $coluna_id_usuario = "id_$confirmar_tipo_usuario"; //Pega o nome da coluna id da tabela através de uma concatenação com o tipo do 
-                                                            //usuário (id_aluno, id_professor e id_administrador são as colunas existentes de cada tipo de usuário no BD)
-        $sql_query_aluno = mysqli_query($banco, "SELECT email ,senha FROM $tabela WHERE $coluna_id_usuario='$confirmar_id';");
-        $dados_aluno_BD = mysqli_fetch_row($sql_query_aluno);
+$textoIdAluno = json_encode($_POST['textoIdAluno']);
+$tipo_usuario = json_encode($_POST['tipo_usuario']);
+$novo_nome = json_encode($_POST['novo_nome']);
+$novo_sobrenome= json_encode($_POST['novo_sobrenome']);
+$novo_cpf = json_encode($_POST['novo_cpf']);
+$novo_telefone = json_encode($_POST['novo_telefone']);
+$nova_data_nascimento = json_encode($_POST['nova_data_nascimento']);
+$novo_email = json_encode($_POST['novo_email']);
+$nova_senha = json_encode($_POST['nova_senha']);
 
-        
-        $novo_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+// Encontrar o usuário através da confirmação do id 
+$tabela_BD = $tipo_usuario; //Encontrar qual a tabela que sera feito a query no BD (aluno, professor ou adm)
 
-        $sql = "UPDATE $confirmar_tipo_usuario SET nome='$novo_nome', sobrenome='$novo_sobrenome', data_nascimento='$nova_data_nascimento', 
-        cpf='$novo_cpf', telefone='$novo_telefone', email='$novo_email', senha='$novo_senha_hash' WHERE email='$dados_aluno_BD[0]' AND senha='$dados_aluno_BD[1]'; ";
+$coluna_id_usuario = "id_$tipo_usuario"; //Pegar o nome do id da tabela do usuario (ex: id_aluno)
+//usuário (id_aluno, id_professor e id_administrador são as colunas existentes de cada tipo de usuário no BD)
 
-        $sql_query = mysqli_query($banco, $sql);
-    
-}
-
+$sql_query_aluno = mysqli_query($banco, "SELECT email ,senha FROM $tabela_BD WHERE $coluna_id_usuario=$textoIdAluno;");
+$dados_aluno_BD = mysqli_fetch_row($sql_query_aluno);
 
 
-?>
+$novo_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+$sql = "UPDATE $tipo_usuario SET nome=$novo_nome, sobrenome=$novo_sobrenome, data_nascimento=$nova_data_nascimento, 
+        cpf=$novo_cpf, telefone=$novo_telefone, email=$novo_email, senha=$novo_senha_hash WHERE email='$dados_aluno_BD[0]' AND senha='$dados_aluno_BD[1]'; ";
+
+$sql_query = mysqli_query($banco, $sql);

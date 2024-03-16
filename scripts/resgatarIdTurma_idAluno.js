@@ -25,7 +25,7 @@ function pegarIdTurma_aluno(botao) {
 
         $.ajax({
 
-            url: '../../backend-pi/administrador/adm_adicionar_aluno_turma.php',
+            url: '../../backend/administrador/adm_adicionar_aluno_turma.php',
             type: 'POST',
             data: {
                 /* adiciona a variavel com o número a requisicao*/
