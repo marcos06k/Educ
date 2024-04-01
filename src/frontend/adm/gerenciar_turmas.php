@@ -234,9 +234,9 @@ include("../../backend/administrador/adm_listar_turmas.php");
                     
                     <select class="bg-fundo-claro focus:outline-none p-2 text-gray-400" name="curso">
                       <option value="" selected disabled>Curso</option>
-                      <option value="Desenvolvimento de Sistema">Dev. de Sistemas</option>
-                      <option value="Administração">Administração</option>
-                      <option value="Design">Design</option>
+                      <option value="Desenvolvimento de Sistemas">Dev. de Sistemas</option>
+                      <option value="Administracao">Administração</option>
+                      <option value="Design Grafico">Design</option>
                     </select>
                     
                     <label class="mb-[-24px] mt-[-18px] text-[12px] font-bold" for="criar_data_inicio">Data de Início</label>

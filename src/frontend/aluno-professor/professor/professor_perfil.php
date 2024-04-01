@@ -1,3 +1,10 @@
+<?php
+include ("../../../backend/conexao.php");
+include ("../../../backend/professor/prof_dados_perfil.php");
+include ("../../../backend/professor/prof_listar_turmas_perfil.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,26 +60,13 @@
      </menu>
      <main class="flex w-full h-full items-center justify-center gap-x-40 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
 
-        <div class="flex flex-col items-center bg-white h-3/4 w-3/12 2xl:h-96 2xl:w-1/4 rounded-3xl shadow-md">
-            <div class="h-2/6 w-full bg-gradient-to-l from-purple-900 to-violet-700 rounded-t-3xl"></div>
-            <img src="../../../../assets/user.png" class="size-40 2xl:size-32 mt-[-85px] drop-shadow-md" alt="">
-            <div class="w-full flex flex-col items-center mt-4">
-                <h1 class="font-semibold text-lg">Artur Vargas</h1>
-                <p class="text-gray-500">Professor</p>
-                </div>
-                <div class="h-20 w-full mt-10 flex justify-center items-center gap-12">
-                    <div class="text-center">
-                        <h1 class="text-roxo-claro font-semibold text-3xl">2</h1>
-                        <p class="text-gray-500">Turmas</p>
-                    </div>
-                    <div class="text-center">
-                        <h1 class="text-roxo-claro font-semibold text-3xl">1</h1>
-                        <p class="text-gray-500">Disciplina</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+     <!-- Dados do perfil do professor -->
+    <?php
+    prof_dados_perfil();
+    ?>
+    <!-- /-->
 
+<!-- Listar turmas do professor -->
         <div class="bg-white h-3/4 w-2/6 2xl:h-96 2xl:w-2/4 rounded-xl shadow-md overflow-hidden">
             <div class="text-white text-center font-semibold p-5 bg-roxo-claro">
                 <h1>Turmas</h1>
@@ -89,13 +83,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                        <tr class="odd:bg-white even:bg-gray-50 border-b">
-                            <td class="px-6 py-4">Manhã</td>
-                            <td class="px-6 py-4">Dev. de Sistemas</td>
-                            <td class="px-6 py-4">05/01/2023</td>
-                            <td class="px-6 py-4">05/01/2024</td>
-                            <td class="px-6 py-4 text-roxo-claro font-semibold"><a href="#" class="hover:underline">Acessar</a></td>
-                          </tr>
+                       <?php 
+                        listar_turmas_perfil();
+                       ?>
                   </tbody>
                 </table>
               </div>
