@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUQ - Página Principal </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../../../../scripts/tailwindcfg.js"></script>
+    <script src="../../../scripts/tailwindcfg.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -29,9 +29,9 @@
     <section class="flex flex-col w-full h-screen items-center">
         <header class="bg-white shadow-sm w-full h-20 flex justify-between items-center px-10">
             <div class="flex items-center bg-fundo-claro  rounded-lg text-gray-400"><label for="search" class="material-symbols-outlined p-2 rounded-lg">search</label><input placeholder="Pesquisar" id="search" type="text" class="bg-fundo-claro p-2 italic text-sm focus:outline-none rounded-lg"></div>
-            <img src="../../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-36">
+            <img src="../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-36">
             <div class="flex items-center gap-3">
-                <img src="../../../../assets/user.png" class="h-10">
+                <img src="../../../assets/user.png" class="h-10">
                 <h1 class="flex items-center italic gap-1 text-sm">Olá,<b>Artur V.</b><a href="#" class="material-symbols-outlined">arrow_drop_down</a></h1>
                 <a
           href="#"
@@ -67,12 +67,20 @@
 
         <div class="bg-white shadow-md rounded-xl h-full w-[440px] overflow-hidden relative ml-14">
             <div class="flex justify-center items-center h-1/6 bg-roxo-claro text-center">
-                <h1 class="text-white font-semibold text-lg">Criar Aula</h1>
+                <h1 class="text-white font-semibold text-lg">Criar Atividade</h1>
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
                 <form action="" class="flex flex-col ">
-                    <label class="font-montserrat" for="data">NOME DA AULA</label>
+                    <label class="font-montserrat" for="file">Arquivo</label>
+                      <input
+                          class="border  border-neutral-700   2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
+                          type="file"
+                          name="arquivo_blob"
+                          id="file"
+                      />
+
+                    <label class="font-montserrat" for="data">NOME</label>
                       <input
                           class="border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                           type="text"
@@ -80,10 +88,7 @@
                           id="data"
                       />
 
-
-                    
-                
-                    <label class="font-montserrat" for="curso">AULA REMOTO</label>
+                    <label class="font-montserrat" for="curso">PESO</label>
                     <select
                     class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
                     name="curso"
@@ -94,8 +99,52 @@
                         <option class="text-gray-700" value="nao">Não</option>
                     </select>
 
-                    
+                    <label class="font-montserrat" for="curso">CONSULTA</label>
+                    <select
+                    class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
+                    name="curso"
+                    id="curso"
+                    >
+                        <option disabled selected value=""></option>
+                        <option class="text-gray-700" value="sim">Sim</option>
+                        <option class="text-gray-700" value="nao">Não</option>
+                    </select>
 
+                    <label class="font-montserrat" for="curso">ENTREGAVEL</label>
+                    <select
+                    class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
+                    name="curso"
+                    id="curso"
+                    >
+                        <option disabled selected value=""></option>
+                        <option class="text-gray-700" value="sim">Sim</option>
+                        <option class="text-gray-700" value="nao">Não</option>
+                    </select>
+
+                    <label class="font-montserrat" for="data">PRAZO ENTREGA</label>
+                      <input
+                          class="border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
+                          type="date"
+                          name="data_nascimento"
+                          id="data"
+                      />
+                      
+                      <label class="font-montserrat" for="data">COLETIVA</label>
+                      <input
+                          class="border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
+                          type="text"
+                          name="data_nascimento"
+                          id="data"
+                      />
+
+                    <div class="mt-8 2xl:mt-5 flex items-center gap-14 2xl:gap-12">
+                        <input
+                          class="bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6"
+                          type="submit"
+                          value="Criar Atividade"
+                        />
+                        
+                      </div>
                 </form>
                
             </div>

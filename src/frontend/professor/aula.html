@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUQ - Página Principal </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../../../../scripts/tailwindcfg.js"></script>
+    <script src="../../../scripts/tailwindcfg.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
@@ -39,9 +39,9 @@
                     class="material-symbols-outlined p-2 rounded-lg">search</label><input placeholder="Pesquisar"
                     id="search" type="text" class="bg-fundo-claro p-2 italic text-sm focus:outline-none rounded-lg">
             </div>
-            <img src="../../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-36">
+            <img src="../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-36">
             <div class="flex items-center gap-3">
-                <img src="../../../../assets/user.png" class="h-10">
+                <img src="../../../assets/user.png" class="h-10">
                 <h1 class="flex items-center italic gap-1 text-sm">Olá,<b>Artur V.</b><a href="#"
                         class="material-symbols-outlined">arrow_drop_down</a></h1>
                 <a href="#"
@@ -56,8 +56,11 @@
             <span class="material-symbols-outlined text-3xl text-gray-300">account_circle</span>
             <h1 class="text-sm font-semibold text-gray-300">Meu Perfil</h1>
             <p class="text-gray-300 font-bold">></p>
-            <span class="material-symbols-outlined text-3xl text-gray-700">group</span>
-            <h1 class="text-sm font-semibold text-gray-700">Turma 01</h1>
+            <span class="material-symbols-outlined text-3xl text-gray-300">group</span>
+            <h1 class="text-sm font-semibold text-gray-300">Turma 01</h1>
+            <p class="text-gray-300 font-bold">></p>
+            <span class="material-symbols-outlined text-3xl text-gray-700">class</span>
+            <h1 class="text-sm font-semibold text-gray-700">Aula poo</h1>
         </menu>
 
         <main class="flex w-full h-full items-center justify-start gap-x-12 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
@@ -81,9 +84,11 @@
                             </div>
                         </div>
                         <div class="flex flex-col item-center justify-center">
-                            <a href="" class="mb-1.5">
+                            <button type='button' onclick="toggleModal('modal-id')"></button>
+                            <a href="editarConteudo.html" class="mb-1.5">
                                 <p>Editar</p>
                             </a>
+                            </button>
                             <a href="" class="mt-1.5">
                                 <p>Deletar</p>
                             </a>
@@ -103,7 +108,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col item-center justify-center">
-                            <a href="" class="mb-1.5">
+                            <a href="editarConteudo.html" class="mb-1.5">
                                 <p>Editar</p>
                             </a>
                             <a href="" class="mt-1.5">
@@ -134,7 +139,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col item-center justify-center">
-                            <a href="" class="mb-1.5">
+                            <a href="editarAtividade.html" class="mb-1.5">
                                 <p>Editar</p>
                             </a>
                             <a href="" class="mt-1.5">
@@ -156,7 +161,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col item-center justify-center">
-                            <a href="" class="mb-1.5">
+                            <a href="editarAtividade.html" class="mb-1.5">
                                 <p>Editar</p>
                             </a>
                             <a href="" class="mt-1.5">
@@ -171,20 +176,17 @@
             </div>
 
                 <div class="flex flex-col justify-end h-full gap-2 item-center">
-                    <a href="criarAula.php"
+                    <a href="criarConteudo.html"
                         class="flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950">
                         Criar Conteudo <p class="material-symbols-outlined">add_circle</p>
                     </a>
-                    <a href="criarAula.php"
+                    <a href="criarAtividade.html"
                         class="flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950">
                         Criar Atividade <p class="material-symbols-outlined">add_circle</p>
                     </a>
     
                 </div>
                 
-                
-
-
         </main>
 </body>
 
