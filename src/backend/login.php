@@ -54,13 +54,13 @@
                 session_start();
                 $_SESSION['email_professor'] = $email_bd;
                 $_SESSION['senha_professor'] = $senha_bd;
-                header("Location: ../frontend/aluno-professor/professor/main.html");
+                header("Location: ../frontend/professor/main.html");
             } 
             else if ($tipo_usuario == 'aluno'){
                 session_start();
                 $_SESSION['email_aluno'] = $email_bd;
                 $_SESSION['senha_aluno'] = $senha_bd;
-                header("Location: ../frontend/aluno-professor/main.html");
+                header("Location: ../frontend/aluno/main.html");
             } 
         } else {
             echo "errou a senha";

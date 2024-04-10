@@ -1,7 +1,6 @@
 <?php
 include ("../../backend/conexao.php");
-include ("../../backend/professor/prof_dados_perfil.php");
-include ("../../backend/professor/prof_listar_turmas_perfil.php");
+include ("../../backend/professor/prof_perfil.php");
 
 ?>
 
@@ -91,5 +90,8 @@ include ("../../backend/professor/prof_listar_turmas_perfil.php");
               </div>
         </div>
      </main>
+
+     <script src="../../../scripts/resgatarIdTurmaPerfil.js"></script>
+     
 </body>
 </html>

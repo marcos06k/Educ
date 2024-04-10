@@ -71,23 +71,23 @@
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
-                <form action="" class="flex flex-col ">
-                    <label class="font-montserrat" for="data">NOME DA AULA</label>
+                <form action="../../backend/professor/prof_criar_aula.php" class="flex flex-col ">
+                    <label class="font-montserrat" for="nome_aula">NOME DA AULA</label>
                       <input
                           class="border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
                           type="text"
-                          name="data_nascimento"
-                          id="data"
+                          name="nome_aula"
+                          id="nome_aula"
                       />
 
 
                     
                 
-                    <label class="font-montserrat" for="curso">AULA REMOTO</label>
+                    <label class="font-montserrat" for="remoto">AULA REMOTO</label>
                     <select
                     class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
-                    name="curso"
-                    id="curso"
+                    name="remoto"
+                    id="remoto"
                     >
                         <option disabled selected value=""></option>
                         <option class="text-gray-700" value="sim">Sim</option>

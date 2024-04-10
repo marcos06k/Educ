@@ -8,9 +8,9 @@ $emailProfessor = $_SESSION['email_professor'];
 $senhaProfessor = $_SESSION['senha_professor'];
 
 
-$input_id_turma = $_POST['input_id_turma'];
+$id_turma = json_encode($_POST['idTurmaPerfil']);
 $nome_aula = $_POST['nome_aula'];
-$data_aula = $_POST['data_aula'];
+$data_aula = date('d/m/Y');
 $presencial = $_POST['presencial'];
 
 $sql_query = mysqli_query($banco, "insert into aula values (null, '$nome_aula', '$data_aula', '$presencial');");
@@ -21,7 +21,7 @@ $sql = "SELECT
         FROM turma_aluno tm_al
             INNER JOIN turma tm ON tm_al.id_turma = tm.id_turma
             INNER JOIN professor pf ON tm.id_professor = pf.id_professor
-        WHERE pf.email='$emailProfessor' AND pf.senha='$senhaProfessor' AND tm.id_professor=pf.id_professor AND tm.id_turma='$input_id_turma' and tm_al.id_turma=tm.id_turma ;
+        WHERE pf.email='$emailProfessor' AND pf.senha='$senhaProfessor' AND tm.id_professor=pf.id_professor AND tm.id_turma='$id_turma' and tm_al.id_turma=tm.id_turma ;
         ";
 
 $query_turma_aluno = mysqli_query($banco, $sql);
