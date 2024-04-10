@@ -8,7 +8,7 @@ $emailProfessor = $_SESSION['email_professor'];
 $senhaProfessor = $_SESSION['senha_professor'];
 
 
-$id_turma = json_encode($_POST['idTurmaPerfil']);
+$id_turma = json_encode($_POST['idTurmaAula']);
 $nome_aula = $_POST['nome_aula'];
 $data_aula = date('d/m/Y');
 $presencial = $_POST['presencial'];

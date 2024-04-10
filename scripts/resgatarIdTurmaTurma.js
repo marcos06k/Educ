@@ -5,7 +5,7 @@ function pegarIdTurma_criarAula(idTurma) {
             url: '../../backend/professor/prof_criar_aula.php',
             type: 'POST',
             data: {
-                'idTurmaPerfil': idTurma
+                'idTurmaAula': idTurma
             },
             dataType: 'json',
             success: function (data) {
