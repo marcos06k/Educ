@@ -1,11 +1,14 @@
 function pegarIdTurmaPerfil(idTurma) {  
         console.log("id_turma " + idTurma);
+
+        // transformando a string em objeto pra mandar no json
+        var jsonData = JSON.stringify(idTurma);
         $.ajax({
             
             url: '../../backend/professor/prof_turma.php',
             type: 'POST',
             data: {
-                'idTurmaPerfil': idTurma
+                'idTurma': jsonData
             },
             dataType: 'json',
             success: function (data) {

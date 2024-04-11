@@ -1,15 +1,15 @@
 <?php
+$idTurma = json_decode($_POST['idTurma'], true);
+ echo  $idTurma;  
 
-$id_turmaa = $_POST['idTurmaPerfil'] ;
-echo "id da turma" . $id_turmaa;
 function listarAulasTurma(){
     $id_turma = $_POST['idTurmaPerfil'] ;
-    echo $id_turma;
+    echo $idTurma;
 }
 
 function listarEntregasTurma(){
     $id_turma = $_POST['idTurmaPerfil'] ;
-    echo $id_turma;
+    echo $id_turma;}
 }
 
 
