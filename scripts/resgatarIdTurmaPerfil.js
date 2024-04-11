@@ -1,11 +1,14 @@
 function pegarIdTurmaPerfil(idTurma) {  
-    console.log(idTurma);
+    const idTurmaPerfil = 1;
+
+    if (idTurmaPerfil != null) {
+        console.log("ok");
         $.ajax({
             
             url: '../../backend/professor/prof_turma.php',
             type: 'POST',
             data: {
-                'idTurmaPerfil': idTurma
+                'idTurmaPerfil': idTurmaPerfil
             },
             dataType: 'json',
             success: function (data) {
@@ -16,5 +19,8 @@ function pegarIdTurmaPerfil(idTurma) {
             }
             
         });
+    } else {
+        console.log("null");
+    }
     }
   

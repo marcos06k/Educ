@@ -1,8 +1,8 @@
 <?php
 
+$id_turma = json_encode($_POST['idTurmaPerfil']) ;
+echo $id_turma;
 function listarAulasTurma(){
-    $id_turma = json_encode($_POST['idTurmaPerfil']) ;
-    echo $id_turma;
 }
 
 function listarEntregasTurma(){

@@ -7,6 +7,7 @@ include ("../../backend/professor/prof_perfil.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUQ - Página Principal </title>
@@ -20,6 +21,7 @@ include ("../../backend/professor/prof_perfil.php");
       rel="stylesheet"
     />
 </head>
+
 <body class="bg-fundo-claro flex font-poppins h-screen">
     <nav class="flex flex-col items-center h-full bg-roxo-claro w-20">
         <div class="flex flex-col gap-4 mt-16">
@@ -62,6 +64,7 @@ include ("../../backend/professor/prof_perfil.php");
      <!-- Dados do perfil do professor -->
     <?php
     prof_dados_perfil();
+    
     ?>
     <!-- /-->
 
