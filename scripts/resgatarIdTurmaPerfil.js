@@ -1,5 +1,5 @@
 function pegarIdTurmaPerfil(idTurma) {  
-        console.log(idTurma);
+        console.log("id_turma " + idTurma);
         $.ajax({
             
             url: '../../backend/professor/prof_turma.php',
