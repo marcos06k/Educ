@@ -83,11 +83,16 @@ function listar_turmas_perfil()
                 <td class='px-6 py-4'>$sql_dados_turma[3]</td>
                 <td class='px-6 py-4'>$sql_dados_turma[4]</td>
                 <td class='px-6 py-4 text-roxo-claro font-semibold'>
-                <button name='acao' id='btn-executar' type='button' onclick='pegarIdTurmaPerfil($sql_dados_turma[0])'>
-                    <a href='turma.php' class='hover:underline'>Acessar</a>
-                </button>
+                <form action='teste.php' method='post' >
+                    <input id='inputIdTurma' type='text' value='$sql_dados_turma[0]' name='inputIdTurma' style='display: none;'>
+                    <input type='submit' value='entrar'>
+                </form>
+                
                 </td>
         </tr>";
     }
 }
+                // <button name='acao' id='btn-executar' type='button' onclick='pegarIdTurmaPerfil($sql_dados_turma[0])'>
+                //     <a href='#' class='hover:underline'>Acessar</a>
+                // </button>
 ?>

@@ -3,13 +3,12 @@ $idTurma = json_decode($_POST['idTurma'], true);
  echo  $idTurma;  
 
 function listarAulasTurma(){
-    $id_turma = $_POST['idTurmaPerfil'] ;
-    echo $idTurma;
+    echo json_decode($_POST['idTurma'], true);
 }
 
 function listarEntregasTurma(){
     $id_turma = $_POST['idTurmaPerfil'] ;
-    echo $id_turma;}
+    echo $id_turma;
 }
 
 
