@@ -69,22 +69,10 @@ include("../../backend/professor/prof_turma.php");
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
                 <?php
-                // listarAulasTurma()
+                listarAulasTurma()
                 ?>
                 
 
-                <a href="" class="flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50">
-                    <div class=" w-3/4">
-                        <h1 class="font-bold text-2xl">Programação OO</h1>
-                        <div class="text-sm">
-                            <p>Presencial</p>
-                            <p>05/01/2024</p>
-                        </div>
-                    </div>
-                    <div class="flex item-center justify-center">
-                        <span class="material-symbols-outlined text-2xl">arrow_right_alt</span>
-                    </div>
-                </a>  
 
             
 

@@ -9,11 +9,11 @@
     $id_turma = $_POST['idTurma'];
     echo "Id da turma: ".$id_turma;
 
-    $nome_aula = $_POST['idTurma'];
+    $nome_aula = $_POST['nome_aula'];
     $data_aula = date('d/m/Y');
     $presencial = $_POST['presencial'];
 
-    $sql_query = mysqli_query($banco, "INSERT INTO aula VALUES (NULL, '$nome_aula', '$data_aula', '$presencial');");
+    $sql_query = mysqli_query($banco, "INSERT INTO aula VALUES (NULL, '$nome_aula', NOW(), '$presencial');");
     $id_ultima_aula_cadastrada = $banco->insert_id;
 
     $sql = "SELECT 
