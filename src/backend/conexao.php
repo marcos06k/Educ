@@ -1,5 +1,5 @@
 <?php 
-    $banco = mysqli_connect('localhost','root','usbw', 'educ');
+    $banco = mysqli_connect('localhost','root','', 'educ');
     if(!$banco){
         echo "Não foi possivel conectar com o BD.<br>Causa:".mysqli_connect_error();
     } else {

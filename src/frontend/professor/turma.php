@@ -1,8 +1,10 @@
+<?php
+include("../../backend/professor/prof_turma.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUQ - Página Principal </title>
@@ -53,68 +55,81 @@
             >
             <h1 class="text-sm font-semibold text-gray-300">Meu Perfil</h1>
             <p class="text-gray-300 font-bold">></p>
-            <span class="material-symbols-outlined text-3xl text-gray-300"
+            <span class="material-symbols-outlined text-3xl text-gray-700"
             >group</span
             >
-            <h1 class="text-sm font-semibold text-gray-300">Turma 01</h1>       
-            
-            <p class="text-gray-300 font-bold">></p>
-            <span class="material-symbols-outlined text-3xl text-gray-300"
-            >add_circle</span
-            >
-            <h1 class="text-sm font-semibold text-gray-700">Criar Aula</h1>
+            <h1 class="text-sm font-semibold text-gray-700">Turma 01</h1>       
      </menu>
-
-     <main class="flex w-full h-full items-center justify-center gap-x-12 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
+     <main class="flex w-full h-full items-center justify-start gap-x-12 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
 
         <div class="bg-white shadow-md rounded-xl h-full w-[440px] overflow-hidden relative ml-14">
             <div class="flex justify-center items-center h-1/6 bg-roxo-claro text-center">
-                <h1 class="text-white font-semibold text-lg">Criar Aula</h1>
+                <h1 class="text-white font-semibold text-lg">Aulas</h1>
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
-            <?php  $idTurmaAula = $_POST['idTurmaAula'];
-                echo "<form action='../../backend/professor/prof_criar_aula.php' class='flex flex-col' method='post'>
-                <label class='font-montserrat' for='nome_aula'>NOME DA AULA</label>
-                  <input
-                      class='border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'
-                      type='text'
-                      name='nome_aula'
-                      id='nome_aula'
-                  />
 
-                  <input id='idTurma' type='text' value=$idTurmaAula name='idTurma' style='display: none;'>
+                <?php
+                // listarAulasTurma()
+                ?>
                 
+
+                <a href="" class="flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50">
+                    <div class=" w-3/4">
+                        <h1 class="font-bold text-2xl">Programação OO</h1>
+                        <div class="text-sm">
+                            <p>Presencial</p>
+                            <p>05/01/2024</p>
+                        </div>
+                    </div>
+                    <div class="flex item-center justify-center">
+                        <span class="material-symbols-outlined text-2xl">arrow_right_alt</span>
+                    </div>
+                </a>  
+
             
-                <label class='font-montserrat' for='presencial'>AULA PRESENCIAL</label>
-                <select
-                class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
-                name='presencial'
-                id='presencial'
-                >
-                    <option disabled selected value=''></option>
-                    <option class='text-gray-700' value='sim'>Sim</option>
-                    <option class='text-gray-700' value='nao'>Não</option>
-                </select>
 
-                <div class='mt-8 2xl:mt-5 flex justify-end gap-14 2xl:gap-12'>
-                    <input
-                      class='bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6'
-                      type='submit'
-                      value='Criar Aula'
-                    />
-                    
-                  </div>
-            </form>"
-            ?>
-
-                
-               
             </div>
         </div>
 
-       
+        <div class="bg-white shadow-md rounded-xl h-full w-[440px] overflow-hidden relative">
+            <div class="flex justify-center items-center h-1/6 bg-roxo-claro text-center">
+                <h1 class="text-white font-semibold text-lg">Entregas recentes</h1>
+            </div>
+            <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
-        
+                <a href="" class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
+                    <div class="flex flex-col w-3/4 gap-5">
+                        <div>
+                            <h1 class="font-bold text-2xl">Spring Boot</h1>
+                                <p class="text-sm">Atividade 01</p>
+                        </div>             
+                        <div class="text-sm">
+                            <p>De: <b class="font-semibold">Artur Vargas</b></p>
+                            <p>05/01/2024</p>
+                        </div>
+                    </div>
+                    <div class="flex item-center justify-center">
+                        <span class="material-symbols-outlined text-2xl">arrow_right_alt</span>
+                    </div>
+                </a> 
+
+                 
+
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-end h-full gap-2 item-center">
+            <?php
+                $inputIdTurma = $_POST['inputIdTurma'];
+                echo "<form action='criarAula.php' method='post' >
+                <input id='idTurma_turma' type='text' value=$inputIdTurma name='idTurmaAula' style='display: none;'>
+                <input type='submit' value='Criar Aula' class='flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
+                </form>";
+            ?>
+            
+                
+            
+            </div>
 
 
      </main>
