@@ -5,7 +5,7 @@ function listarAulasTurma()
     $banco = mysqli_connect('localhost','root','', 'educ');
     $idTurma = $_POST['inputIdTurma'];
 
-    $sql = "SELECT 
+    $sql = "SELECT DISTINCT
                 aul.id_aula,
                 aul.nome,
                 aul.data_aula,
@@ -38,18 +38,7 @@ function listarAulasTurma()
                     <input type='submit' value='entrar'>
                 </div>
             </form>";
-        // echo "<a href='aula.php' class='flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50'>
-        //         <div class=' w-3/4'>
-        //             <h1 class='font-bold text-2xl'> $result_query[0] </h1>
-        //             <div class='text-sm'>
-        //                 <p>$resposta_presencial </p>
-        //                 <p>$result_query[1]</p>
-        //             </div>
-        //         </div>
-        //         <div class='flex item-center justify-center'>
-        //             <span class='material-symbols-outlined text-2xl'>arrow_right_alt</span>
-        //         </div>
-        //     </a>";
+        
     }
     
 }

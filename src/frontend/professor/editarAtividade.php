@@ -72,40 +72,89 @@
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
-                <form action="" class="flex flex-col ">
-                    <label class="font-montserrat" for="data">NOME DA AULA</label>
+                <?php 
+                $idAtividade = $_POST['idAtividade'];
+                echo " <form action='../../backend/professor/prof_editar_atividade.php' method='post' enctype='multipart/form-data' class='flex flex-col'>
+                    <input id='idAtividade' type='text' value=$idAtividade name='idAtividade_atividade' style='display: none;'>
+
+                    <label class='font-montserrat' for='file'>Arquivo</label>
                       <input
-                          class="border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
-                          type="text"
-                          name="data_nascimento"
-                          id="data"
+                          class='border  border-neutral-700   2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'
+                          type='file'
+                          name='arquivo'
+                          id='file'
                       />
 
+                    <label class='font-montserrat' for='data'>NOME</label>
+                      <input
+                          class='border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'
+                          type='text'
+                          name='nome'
+                          id='nome'
+                      />
 
-                    
-                
-                    <label class="font-montserrat" for="curso">AULA REMOTO</label>
+                    <label class='font-montserrat' for='curso'>PESO</label>
                     <select
-                    class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
-                    name="curso"
-                    id="curso"
+                    class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
+                    name='peso'
+                    id='peso'
                     >
-                        <option disabled selected value=""></option>
-                        <option class="text-gray-700" value="sim">Sim</option>
-                        <option class="text-gray-700" value="nao">Não</option>
+                        <option disabled selected value=''></option>
+                        <option class='text-gray-700' value='avaliativa'>Avaliativa</option>
+                        <option class='text-gray-700' value='didativa'>Didatica</option>
                     </select>
 
-                    <div class="mt-8 2xl:mt-5 flex justify-end gap-14 2xl:gap-12">
+                    <label class='font-montserrat' for='curso'>CONSULTA</label>
+                    <select
+                    class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
+                    name='consulta'
+                    id='consulta'
+                    >
+                        <option disabled selected value=''></option>
+                        <option class='text-gray-700' value='sim'>Sim</option>
+                        <option class='text-gray-700' value='nao'>Não</option>
+                    </select>
+
+                    <label class='font-montserrat' for='curso'>ENTREGAVEL</label>
+                    <select
+                    class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
+                    name='entregavel'
+                    id='entregavel'
+                    >
+                        <option disabled selected value=''></option>
+                        <option class='text-gray-700' value='sim'>Sim</option>
+                        <option class='text-gray-700' value='nao'>Não</option>
+                    </select>
+
+                    <label class='font-montserrat' for='data'>PRAZO ENTREGA</label>
+                      <input
+                          class='border px-4 border-neutral-700 w-12/12 h-16 2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'
+                          type='date'
+                          name='prazo_entrega'
+                          id='prazo_entrega'
+                      />
+                      
+                      <label class='font-montserrat' for='data'>COLETIVA</label>
+                      <select
+                        class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
+                        name='coletiva'
+                        id='coletiva'
+                        >
+                            <option disabled selected value=''></option>
+                            <option class='text-gray-700' value='sim'>Sim</option>
+                            <option class='text-gray-700' value='nao'>Não</option>
+                      </select>
+
+                    <div class='mt-8 2xl:mt-5 flex items-center gap-14 2xl:gap-12'>
                         <input
-                          class="bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6"
-                          type="submit"
-                          value="Editar Atividade"
+                          class='bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6'
+                          type='submit'
+                          value='Criar Atividade'
                         />
                         
                       </div>
-                    
-
-                </form>
+                </form>" ?>
+                ?>
                
             </div>
         </div>

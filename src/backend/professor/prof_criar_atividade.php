@@ -1,11 +1,5 @@
 <?php
-$id_aula = $_POST['idAula_aula'];
-$nome = $_POST['nome'];
-$peso = $_POST['peso'];
-$consulta = $_POST['consulta'];
-$entregavel = $_POST['entregavel'];
-$prazo_entrega = $_POST['prazo_entrega'];
-$coletiva = $_POST['coletiva'];
+
 
 
 //verifica se a vinda do metodo for post 
@@ -13,6 +7,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verificar se o campo 'arquivo' foi enviado
     if (isset($_FILES['arquivo'])) {
+        //Valor do formulario
+        $id_aula = $_POST['idAula_aula'];
+        $nome = $_POST['nome'];
+        $peso = $_POST['peso'];
+        $consulta = $_POST['consulta'];
+        $entregavel = $_POST['entregavel'];
+        $prazo_entrega = $_POST['prazo_entrega'];
+        $coletiva = $_POST['coletiva'];
 
         //pegando o caminho do arquivo
         $file = $_FILES['arquivo'];

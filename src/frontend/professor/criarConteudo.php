@@ -72,36 +72,42 @@
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
-                <form action="" class="flex flex-col ">
-                    <label class="font-montserrat" for="file">Arquivo</label>
-                      <input
-                          class="border  border-neutral-700   2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800"
-                          type="file"
-                          name="arquivo_blob"
-                          id="file"
-                      />
-
-
-                    
+            <!-- Formulario para criar o arquivo no BD -->
+            <?php
+            $idAula = $_POST['idAula'];
+            echo " 
+            <form action='../../backend/professor/prof_criar_conteudo.php' method='post' class='flex flex-col' enctype='multipart/form-data'>
+                <input id='idAula' type='text' value=$idAula name='idAula_aula' style='display: none;'>
                 
-                    <label class="font-montserrat" for="nome">Nome Conteudo</label>
-                    <input
-                          class="border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800"
-                          type="text"
-                          name="nome"
-                          id="nome"
-                      />
+                <label class='font-montserrat' for='file'>Arquivo</label>
+                <input
+                    class='border  border-neutral-700   2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'
+                    type='file'
+                    name='arquivo'
+                    id='file'
+                />
+            
+                <label class='font-montserrat' for='nome'>Nome Conteudo</label>
 
-                    
-                    <div class="mt-8 2xl:mt-5 flex items-center gap-14 2xl:gap-12">
-                        <input
-                          class="bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6"
-                          type="submit"
-                          value="Criar Conteudo"
-                        />
-                        
-                      </div>
-                </form>
+                <input
+                    class='border border-neutral-700 px-4 w-12/12 h-16 2xl:h-12 2xl:h-10 rounded-sm focus:outline-none focus:border-violet-800'
+                    type='text'
+                    name='nome'
+                    id='nome'
+                />
+                
+                <div class='mt-8 2xl:mt-5 flex items-center gap-14 2xl:gap-12'>
+                    <input
+                    class='bg-roxo-claro text-white font-montserrat font-black w-5/6 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-5/6'
+                    type='submit'
+                    value='Criar Conteudo'
+                />
+                
+                </div>
+            </form>
+            ";
+            ?>
+                
                
             </div>
         </div>
