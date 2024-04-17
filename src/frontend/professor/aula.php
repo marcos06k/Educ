@@ -71,7 +71,7 @@
                     <h1 class="text-white font-semibold text-lg">Conteudos</h1>
                 </div>
                 <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
-
+                    <!-- conteudos -->
                     <div href=""
                         class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
                         <div class="flex flex-col w-3/4 gap-5">
@@ -96,27 +96,7 @@
                         </div>
                     </div>
 
-                    <div href=""
-                        class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
-                        <div class="flex flex-col w-3/4 gap-5">
-                            <div>
-                                <h1 class="font-bold text-2xl">Java Script</h1>
-                                <p class="text-sm">Conteudo</p>
-                            </div>
-                            <div class="text-sm">
-                                <p>De: <b class="font-semibold">Artur Vargas</b></p>
-                                <p>05/01/2024</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col item-center justify-center">
-                            <a href="editarConteudo.html" class="mb-1.5">
-                                <p>Editar</p>
-                            </a>
-                            <a href="" class="mt-1.5">
-                                <p>Deletar</p>
-                            </a>
-                        </div>
-                    </div>
+                    
 
                 </div>
             </div>
@@ -126,7 +106,7 @@
                     <h1 class="text-white font-semibold text-lg">Atividades</h1>
                 </div>
                 <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
-
+                    <!-- atividades -->
                     <div href=""
                         class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
                         <div class="flex flex-col w-3/4 gap-5">
@@ -149,27 +129,7 @@
                         </div>
                     </div>
 
-                    <div href=""
-                        class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
-                        <div class="flex flex-col w-3/4 gap-5">
-                            <div>
-                                <h1 class="font-bold text-2xl">Spring Boot</h1>
-                                <p class="text-sm">Atividade 01</p>
-                            </div>
-                            <div class="text-sm">
-                                <p>De: <b class="font-semibold">Artur Vargas</b></p>
-                                <p>05/01/2024</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col item-center justify-center">
-                            <a href="editarAtividade.html" class="mb-1.5">
-                                <p>Editar</p>
-                            </a>
-                            <a href="" class="mt-1.5">
-                                <p>Deletar</p>
-                            </a>
-                        </div>
-                    </div>
+                    
 
 
 
@@ -177,15 +137,22 @@
             </div>
 
                 <div class="flex flex-col justify-end h-full gap-2 item-center">
-                    <a href="criarConteudo.html"
-                        class="flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950">
-                        Criar Conteudo <p class="material-symbols-outlined">add_circle</p>
-                    </a>
-                    <a href="criarAtividade.html"
-                        class="flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950">
-                        Criar Atividade <p class="material-symbols-outlined">add_circle</p>
-                    </a>
-    
+                    <?php
+                        $idAula = $_POST['idAula'];
+                        $idConteudo = "";
+                        echo "<form action='criarAtividade.php' method='post' >
+                                <input id='idAula' type='text' value=$idAula name='idAula' style='display: none;'>
+                                <input type='submit' value='Criar Atividade' class='flex justify-center item-center gap-2 w-[200px] bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
+                              </form>
+                              
+                              <form action='criarConteudo.php' method='post' >
+                                <input id='idConteudo' type='text' value=$idConteudo name='idConteudo' style='display: none;'>
+                                <input type='submit' value='Criar Conteudo' class='flex justify-center item-center gap-2 w-[200px] bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
+                              </form>"
+                              
+                              ;
+                    ?>
+                    
                 </div>
                 
         </main>

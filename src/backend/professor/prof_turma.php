@@ -6,6 +6,7 @@ function listarAulasTurma()
     $idTurma = $_POST['inputIdTurma'];
 
     $sql = "SELECT 
+                aul.id_aula,
                 aul.nome,
                 aul.data_aula,
                 aul.presencial
@@ -22,27 +23,40 @@ function listarAulasTurma()
     for ($i=0; $i < $sql_num_rows ; $i++) { 
         $result_query = mysqli_fetch_row($sql_query);
 
-        $resposta_presencial = $result_query[2] == 'sim' ? "Presencial" : "Assincrono";
-        echo "<a href='' class='flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50'>
+        $resposta_presencial = $result_query[3] == 'sim' ? "Presencial" : "Assincrono";
+        echo "<form action='aula.php' method='post' class='flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50'>
+                <input id='idAula' type='text' value='$result_query[0]' name='idAula' style='display: none;'>
+                
                 <div class=' w-3/4'>
-                    <h1 class='font-bold text-2xl'> $result_query[0] </h1>
+                    <h1 class='font-bold text-2xl'> $result_query[1] </h1>
                     <div class='text-sm'>
                         <p>$resposta_presencial </p>
-                        <p>$result_query[1]</p>
+                        <p>$result_query[2]</p>
                     </div>
                 </div>
                 <div class='flex item-center justify-center'>
-                    <span class='material-symbols-outlined text-2xl'>arrow_right_alt</span>
+                    <input type='submit' value='entrar'>
                 </div>
-            </a>";
+            </form>";
+        // echo "<a href='aula.php' class='flex border border-roxo-claro justify-center items-center w-[400px] h-1/4 rounded-2xl hover:bg-violet-50'>
+        //         <div class=' w-3/4'>
+        //             <h1 class='font-bold text-2xl'> $result_query[0] </h1>
+        //             <div class='text-sm'>
+        //                 <p>$resposta_presencial </p>
+        //                 <p>$result_query[1]</p>
+        //             </div>
+        //         </div>
+        //         <div class='flex item-center justify-center'>
+        //             <span class='material-symbols-outlined text-2xl'>arrow_right_alt</span>
+        //         </div>
+        //     </a>";
     }
     
 }
 
 function listarEntregasTurma()
 {
-    $id_turma = $_POST['idTurmaPerfil'];
-    echo $id_turma;
+    
 }
 
 

@@ -1,6 +1,5 @@
 <?php
-include('../conexao.php');
-$id_aula = $_POST['id_aula'];
+$id_aula = $_POST['idAula_aula'];
 $nome = $_POST['nome'];
 $peso = $_POST['peso'];
 $consulta = $_POST['consulta'];
@@ -22,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($file["error"] === UPLOAD_ERR_OK) {
 
             // Diretório da nova pasta que o arquivo será redirecionado/salvo
-            $pastaDir = 'files/atividades/';  
+            $pastaDir = '../../img/professor/atividades/';  
             $uploadPath = $pastaDir . basename($file["name"]);
 
             // Move o arquivo para a pasta do destino e faz o upload do caminho do diretório para o BD
@@ -32,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Encontra o arquivo na pasta 'files/atividades'
                 $arquivo_pasta = $pastaDir.$file["name"];
                 echo 'Esse é o arquivo na pasta files/atividades --> ' . $arquivo_pasta ."<br>";
+                $banco = mysqli_connect('localhost','root','', 'educ');
                 $query_upload_url = mysqli_query($banco, "insert into atividade values(null, '$arquivo_pasta', '$nome', '$peso', '$consulta', '$entregavel', '$prazo_entrega', '$coletiva','$id_aula');");
                 if($query_upload_url){
                     echo "Atividade registrada com sucesso!";

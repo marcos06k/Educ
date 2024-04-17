@@ -84,22 +84,13 @@ include("../../backend/professor/prof_turma.php");
                 <h1 class="text-white font-semibold text-lg">Entregas recentes</h1>
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
+                
+                <?php 
+                
+                listarEntregasTurma();
 
-                <a href="" class="flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50">
-                    <div class="flex flex-col w-3/4 gap-5">
-                        <div>
-                            <h1 class="font-bold text-2xl">Spring Boot</h1>
-                                <p class="text-sm">Atividade 01</p>
-                        </div>             
-                        <div class="text-sm">
-                            <p>De: <b class="font-semibold">Artur Vargas</b></p>
-                            <p>05/01/2024</p>
-                        </div>
-                    </div>
-                    <div class="flex item-center justify-center">
-                        <span class="material-symbols-outlined text-2xl">arrow_right_alt</span>
-                    </div>
-                </a> 
+                ?>
+                 
 
                  
 
@@ -111,7 +102,7 @@ include("../../backend/professor/prof_turma.php");
                 $inputIdTurma = $_POST['inputIdTurma'];
                 echo "<form action='criarAula.php' method='post' >
                 <input id='idTurma_turma' type='text' value=$inputIdTurma name='idTurmaAula' style='display: none;'>
-                <input type='submit' value='Criar Aula' class='flex justify-center item-center gap-2 bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
+                <input type='submit' value='Criar Aula' class='flex justify-center item-center gap-2 w-[200px] bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
                 </form>";
             ?>
             
