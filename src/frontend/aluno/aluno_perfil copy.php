@@ -1,10 +1,13 @@
 <?php
-include("../../backend/aluno/alun_turma.php");
+include ("../../backend/conexao.php");
+include ("../../backend/aluno/alun_perfil.php");
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUQ - Página Principal </title>
@@ -18,7 +21,8 @@ include("../../backend/aluno/alun_turma.php");
       rel="stylesheet"
     />
 </head>
-<body class="bg-fundo-claro flex font-poppins h-screen ">
+
+<body class="bg-fundo-claro flex font-poppins h-screen">
     <nav class="flex flex-col items-center h-full bg-roxo-claro w-20">
         <div class="flex flex-col gap-4 mt-16">
             <a href="#" class="flex items-center justify-center material-symbols-outlined text-white bg-[#201336] text-3xl size-12 rounded-full hover:bg-white hover:text-[#201336] transition-all">other_houses</a>
@@ -45,41 +49,70 @@ include("../../backend/aluno/alun_turma.php");
             </div>
         </header>
         <menu
-      class="gap-2  bg-white shadow-sm w-full h-20 2xl:h-12 flex items-center px-10 mb-12 2xl:mb-0"
+      class="gap-2 bg-white shadow-sm w-full h-20 2xl:h-12 flex items-center px-10 mb-12 2xl:mb-0"
      >
             <span class="material-symbols-outlined text-3xl text-gray-300">home</span>
-            <h1 class="text-sm font-semibold text-gray-300">Menu Principal</h1>
-            <p class="text-gray-300 font-bold">></p>
-            <span class="material-symbols-outlined text-3xl text-gray-300"
+            <h1 class="text-sm font-bold text-gray-300">Menu Principal</h1>
+            <p class="text-gray-300 text-bold">></p>
+            <span class="material-symbols-outlined text-3xl text-gray-700"
             >account_circle</span
             >
-            <h1 class="text-sm font-semibold text-gray-300">Meu Perfil</h1>
-            <p class="text-gray-300 font-bold">></p>
-            <span class="material-symbols-outlined text-3xl text-gray-700"
-            >group</span
-            >
-            <h1 class="text-sm font-semibold text-gray-700">Turma 01</h1>       
+            <h1 class="text-sm font-bold text-gray-700">Meu Perfil</h1>    
      </menu>
-     <main class="flex w-full h-full items-center justify-start gap-x-12 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
+     <main class="flex w-full h-full items-center justify-center gap-x-40 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
 
-        <div class="bg-white shadow-md rounded-xl h-full w-[440px] overflow-hidden relative ml-14">
-            <div class="flex justify-center items-center h-1/6 bg-roxo-claro text-center">
-                <h1 class="text-white font-semibold text-lg">Aulas</h1>
+     <!-- Dados do perfil do professor -->
+            <div class='flex flex-col items-center bg-white h-3/4 w-3/12 2xl:h-96 2xl:w-1/4 rounded-3xl shadow-md'>
+                <div class='h-2/6 w-full bg-gradient-to-l from-purple-900 to-violet-700 rounded-t-3xl'></div>
+                <img src='../../../assets/user.png' class='size-40 2xl:size-32 mt-[-85px] drop-shadow-md' alt=''>
+                <div class='w-full flex flex-col items-center mt-4'>
+                    <h1 class='font-semibold text-lg'>Lucas</h1>
+                    <p class='text-gray-500'>Aluno</p>
+                </div>
+                    <div class='h-20 w-full mt-10 flex justify-center items-center gap-12'>
+                        <div class='text-center'>
+                            <h1 class='text-roxo-claro font-semibold text-3xl'>02</h1>
+                            <p class='text-gray-500'>Turmas</p>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
-            <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
+    <!-- /-->
 
-                <?php
-                    listarAulasTurma()
-                ?>           
-
+<!-- Listar turmas do professor -->
+        <div class="bg-white h-3/4 w-2/6 2xl:h-96 2xl:w-2/4 rounded-xl shadow-md overflow-hidden">
+            <div class="text-white text-center font-semibold p-5 bg-roxo-claro">
+                <h1>Turmas</h1>
             </div>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">Turno</th>
+                      <th scope="col" class="px-6 py-3">Curso</th>
+                      <th scope="col" class="px-6 py-3">Data de Início</th>
+                      <th scope="col" class="px-6 py-3">Data de Termino</th>
+                      <th scope="col" class="px-6 py-3">ENTRAR</th>            
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr class='odd:bg-white even:bg-gray-50 border-b'>
+                    <td class='px-6 py-4'>Manha</td>
+                    <td class='px-6 py-4'>Desenvolvimento de Sistemas</td>
+                    <td class='px-6 py-4'>01/01/12</td>
+                    <td class='px-6 py-4'>02/01/12</td>
+                    <td class='px-6 py-4'>
+                      <a href="turma.php">ENTRAR</a>
+                    </td>
+                  </tr>   
+                  </tbody>
+                </table>
+              </div>
         </div>
-
-        
-
-       
-
-
      </main>
+
+     <script src="../../../scripts/resgatarIdTurmaPerfil.js"></script>
+     
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
-    include('../../backend/professor/prof_aula.php');
+    include('../../backend/aluno/alun_aula.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +65,7 @@
             <h1 class="text-sm font-semibold text-gray-300">Turma 01</h1>
             <p class="text-gray-300 font-bold">></p>
             <span class="material-symbols-outlined text-3xl text-gray-700">class</span>
-            <h1 class="text-sm font-semibold text-gray-700">Aula poo</h1>
+            <h1 class="text-sm font-s   emibold text-gray-700">Aula poo</h1>
         </menu>
 
         <main class="flex w-full h-full items-center justify-start gap-x-12 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
@@ -77,24 +78,12 @@
                 <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
                     <!-- conteudos -->
 
-                    <div class='flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50'>
-                        <div class='flex flex-col w-3/4 gap-5'>
-                            <div>
-                                <h1 class='font-bold text-2xl'>Poo teoria</h1>
-                                <p class='text-sm'>Conteudo</p>
-                            </div>
-                        </div>
-                        <div class='flex flex-col item-center justify-center'>
-                            <form action='' method='post' >
-                                <input type='submit' value='Acessar' class='mb-1.5'> 
-                            </form>
-                        </div>
-                    </div>
-                    
-                    
+                     <?php
+                        listarConteudos();
+                    ?>
+                    <!-- --------------------------- -->
                 </div>
             </div>
-            
 
                 <div class="bg-white shadow-md rounded-xl h-full w-[440px] overflow-hidden relative">
                     
@@ -103,43 +92,10 @@
                     </div>
                     <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
                         <!-- atividades -->
-                        
-                        <div class='flex border border-roxo-claro justify-center items-center w-[400px] h-2/6 rounded-2xl hover:bg-violet-50  '>
-                            <div class='flex flex-col w-3/4 gap-5'>
-                                <div>
-                                    <h1 class='font-bold text-2xl'>Quiz Poo</h1>
-                                    <p class='text-sm'>Atividade </p>
-                                </div>
-                                <div class='text-sm'>
-                                    <p>Prazo: 09/01/2024</p>
-                                </div>
-                            </div>
-                            <div class='flex flex-col item-center justify-center'>
-                                
-                                  
-                                <form action='' method='post' >
-                                    <input id='idAtividade' type='text' value=$result_query[0] name='idAtividade' style='display: none;'>
-                                    <input type='submit' value='Acessar' class='mb-1.5'> 
-                                </form>
-                            </div>
-                        </div>
-                        
+                        <?php
+                            listarAtividades();
+                        ?>
                     </div>
-                </div>
-
-                <div class="flex flex-col justify-end h-full gap-2 item-center">
-                    <?php
-                        $idAula = $_POST['idAula'];
-                        echo "
-                              
-                              <form action='enviarAtividade.php' method='post' >
-                                <input id='Aula' type='text' value=$idAula name='idAula' style='display: none;'>
-                                <input type='submit' value='Entregar Atividade' class='flex justify-center item-center gap-2 w-[200px] bg-roxo-claro text-white py-6 px-12 rounded-lg cursor-pointer hover:bg-purple-950'> 
-                              </form>"
-                              
-                              ;
-                    ?>
-                    
                 </div>
                 
         </main>

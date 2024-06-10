@@ -11,10 +11,10 @@ function listarAulasTurma()
                 aul.data_aula,
                 aul.presencial
                 FROM aula aul
-                INNER JOIN turma_aluno_aula trm_aln_aul ON aul.id_aula = trm_aln_aul.id_aula
-                INNER JOIN turma_aluno trm_aln ON trm_aln_aul.id_turma_aluno = trm_aln.id_turma_aluno
-                INNER JOIN turma trm ON trm_aln.id_turma = trm.id_turma
-            WHERE trm.id_turma='$idTurma'";
+                INNER JOIN turma_aluno_aula taa ON aul.id_aula = taa.id_aula
+                INNER JOIN turma_aluno ta ON taa.id_turma_aluno = ta.id_turma_aluno
+                INNER JOIN turma tr ON ta.id_turma = tr.id_turma
+            WHERE tr.id_turma='$idTurma'";
 
     $sql_query = mysqli_query($banco, $sql);
 
@@ -43,9 +43,10 @@ function listarAulasTurma()
     
 }
 
+/* TODO ATIVIDADES FRONT */
 function listarEntregasTurma()
 {
-    /* TODOOOOOOOOOOOOOOOOOOOOOOOOO */
+    
 }
 
 

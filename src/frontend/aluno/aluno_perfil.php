@@ -1,6 +1,6 @@
 <?php
 include ("../../backend/conexao.php");
-include ("../../backend/professor/prof_perfil.php");
+include ("../../backend/aluno/alun_perfil.php");
 
 ?>
 
@@ -62,22 +62,9 @@ include ("../../backend/professor/prof_perfil.php");
      <main class="flex w-full h-full items-center justify-center gap-x-40 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8">
 
      <!-- Dados do perfil do professor -->
-            <div class='flex flex-col items-center bg-white h-3/4 w-3/12 2xl:h-96 2xl:w-1/4 rounded-3xl shadow-md'>
-                <div class='h-2/6 w-full bg-gradient-to-l from-purple-900 to-violet-700 rounded-t-3xl'></div>
-                <img src='../../../assets/user.png' class='size-40 2xl:size-32 mt-[-85px] drop-shadow-md' alt=''>
-                <div class='w-full flex flex-col items-center mt-4'>
-                    <h1 class='font-semibold text-lg'>Lucas</h1>
-                    <p class='text-gray-500'>Aluno</p>
-                </div>
-                    <div class='h-20 w-full mt-10 flex justify-center items-center gap-12'>
-                        <div class='text-center'>
-                            <h1 class='text-roxo-claro font-semibold text-3xl'>02</h1>
-                            <p class='text-gray-500'>Turmas</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+    <?php
+      alun_dados_perfil();
+    ?>
     <!-- /-->
 
 <!-- Listar turmas do professor -->
@@ -97,15 +84,9 @@ include ("../../backend/professor/prof_perfil.php");
                     </tr>
                   </thead>
                   <tbody>
-                  <tr class='odd:bg-white even:bg-gray-50 border-b'>
-                    <td class='px-6 py-4'>Manha</td>
-                    <td class='px-6 py-4'>Desenvolvimento de Sistemas</td>
-                    <td class='px-6 py-4'>01/01/12</td>
-                    <td class='px-6 py-4'>02/01/12</td>
-                    <td class='px-6 py-4'>
-                      <a href="turma.php">ENTRAR</a>
-                    </td>
-                  </tr>   
+                    <?php
+                      listar_turmas_perfil()
+                    ?>
                   </tbody>
                 </table>
               </div>
