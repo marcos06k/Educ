@@ -73,12 +73,13 @@
             </div>
             <div class="text-roxo-claro flex flex-wrap p-10 justify-center h-[550px] overflow-y-auto gap-5">
 
-                
+
                     <?php
                     $idAula = $_POST['idAula'];
-                    echo " <form action='' method='post' enctype='multipart/form-data' class='flex flex-col'>
-                    <input id='idAula' type='text' value=$idAula name='idAula_aula' style='display: none;'>
-
+                    $idAtividade = $_POST['idAtividade'];
+                    echo " <form action='../../backend/aluno/alun_atividade_entrega.php' method='post' enctype='multipart/form-data' class='flex flex-col'>
+                    <input id='idAula' type='text' value=$idAula name='idAula' style='display: none;'>
+                    <input id='idAtividade' type='text' value=$idAtividade name='idAtividade' style='display: none;'>
                     <label class='font-montserrat' for='file'>Arquivo</label>
                       <input
                           class='border  border-neutral-700   2xl:h-12 rounded-sm focus:outline-none focus:border-violet-800'

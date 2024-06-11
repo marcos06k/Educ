@@ -40,7 +40,11 @@ include("../../backend/administrador/adm_listar_usuarios.php");
     <span class="material-symbols-outlined text-3xl text-gray-700">manage_accounts</span>
     <h1 class="text-sm font-bold text-gray-700">Gerenciar Usuários</h1>
   </menu>
-  <main class="flex justify-center h-3/4 2xl:h-4/6 gap-10">
+
+  <!-- Main -->
+  <main class="lg:flex-col flex justify-center h-3/4 2xl:h-4/6 gap-10">
+    
+    <!-- Tabela listando usuarios -->
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -70,6 +74,7 @@ include("../../backend/administrador/adm_listar_usuarios.php");
       </table>
     </div>
 
+    <!-- modal editar dados do usuario -->
     <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
       <div class="relative w-auto my-6 mx-auto max-w-3xl">
         <!--content-->
@@ -128,13 +133,15 @@ include("../../backend/administrador/adm_listar_usuarios.php");
       </div>
     </div>
     
+
     <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
 
-    <div class="flex flex-col gap-6">
-      <a href="escolher_usuario.html" class="flex gap-2 items-center bg-roxo-claro text-white h-20 px-10 rounded-lg cursor-pointer hover:bg-purple-950 2xl:h-16 2xl:px-6">Registrar Usuários<span class="material-symbols-outlined">
+    <!-- opcao de registrar usuario e filtrar -->
+    <div class="flex flex-col items-center gap-6">
+      <a href="escolher_usuario.html" class="flex lg:w-[350px] w-[300px] gap-2 justify-center items-center bg-roxo-claro text-white h-20 px-10 rounded-lg cursor-pointer hover:bg-purple-950 2xl:h-16 2xl:px-6">Registrar Usuários<span class="material-symbols-outlined">
           add_circle
         </span></a>
-      <div class="flex flex-col w-full font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50">
+      <div class="flex flex-col lg:w-[350px] w-[300px] font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50">
         <h1 class="text-md font-montserrat font-bold flex items-center gap-2"><span class="material-symbols-outlined">sort</span> Filtrar por:</h1>
         
           <form action="" class="flex flex-col gap-2" method="post">

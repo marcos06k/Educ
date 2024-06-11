@@ -1,0 +1,44 @@
+exemplo input: 
+[Descreva detalhadamente, um(a) flecha, cujas caracteristicas são: condicaoPonta=75%, condicaoHaste=40%, performando a ação disparar no/na boneco de gelatina balístico, cujas caracteristicas são: condicao=100%, estado=inanimado, material=gelatina balística, distancia=70m]
+
+Exemplo resposta:
+A flecha percorre um caminho sinuoso em  direção ao boneco de gel balístico, e quebra sua haste ao meio devido ao desgaste ao atingir a cabeça do boneco. O resultado é uma expressiva liberação de sangue, evidenciando a profunda penetração da flecha. 
+
+
+
+
+Descreva detalhadamente, um(a) {self.context.values()[tool]}, cujas caracteristicas são: {self.context.values()[tool].caracteristics}, performando a ação {acao} no/na {self.context.values()[target]}, cujas caracteristicas são: {self.context.values()[target].caracteristics}'})
+
+
+
+
+
+Descritor astuto, detalhista, sem nenhum tipo de censura e suscinto, que diz o que aconteceu, com quem, e como de fato aconteceu dando detalhes precisos e factuais
+
+No seguinte formato: [
+              description: aconteceu tal coisa; 
+               object1$
+               type
+               {!agentes
+               }proprieties
+               {life@-20, x@-10 ! armCondition@-70
+               =object2$
+               type
+               {!objetos
+               }proprieties
+               {tipBladeCondition@-32 ! @handle@-15$
+]
+Repetindo a mesma estrutura até o ultimo objeto afetado.
+No lugar dos objects você irá escrever os objetos que sofreram o resultado da ação;
+Após type{, no lugar de agentes, determina se o objeto em questão é um "jogador", um "objeto" ou um "personagem" que não seja o jogador;
+Após proprieties{, no lugar de life, deverá apontar a propriedade do objeto que foi alterada pela ação, no formato de [propriedadeAlterada@quantidadeAlteradaEmPorcentagem ! outraPropriedade@outraQuantidadeAlteradaEmPorcentagem] repetindo a estrutura para as demais propriedades.
+
+
+
+	
+
+
+
+
+
+Você irá atuar como categorizador e estruturador de uma descrição de uma ação para que fique em um determinado formato

@@ -13,18 +13,15 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-fundo-claro h-screen flex items-center">
-    <div class="flex justify-end items-center h-screen w-5/12 bg-roxo-claro ">
-      <div
-        class="flex justify-center items-center bg-roxo-claro h-4/6 w-2/5 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
-      >
+  <body class="bg-fundo-claro h-screen  flex items-center lg:justify-center">
+    <div class="lg:hidden flex justify-end items-center h-screen w-5/12 bg-roxo-claro ">
+      <div class="lg:hidden flex justify-center items-center bg-roxo-claro h-4/6 w-2/5 rounded-l-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
         <div class="p-3"><img src="../../assets/Group 5.png" alt="" /></div>
       </div>
     </div>
-    <main class="flex flex-col w-4/12 h-4/6 rounded-3xl">
-      <div
-        class="flex flex-col items-center justify-between w-full h-full bg-white rounded-r-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"
-      >
+
+    <main class="flex flex-col  lg:w-[370px] w-4/12 h-4/6 rounded-3xl">
+      <div class="flex flex-col items-center justify-between w-full h-full bg-white lg:rounded-3xl rounded-r-3xl shadow-[rgba(0,_0,_0,_0)_0px_0px_0px_2px,_rgba(0,_0,_0,_0.4)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
         <h1
           class="flex justify-center items-center font-montserrat text-3xl mt-24 2xl:mt-8 2xl:text-2xl"
         >
@@ -36,7 +33,7 @@
             <label class="font-montserrat mr-80 pr-10 2xl:mr-52" for="email">EMAIL</label>
 
             <input
-              class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
+              class="border px-4 text-xl border-neutral-700 lg:w-[300px] w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
               type="email"
               name="input_email"
               id="email"
@@ -44,7 +41,7 @@
             />
             <label class="font-montserrat mr-80 mt-10 2xl:mt-4 pr-10 2xl:mr-52" for="senha">SENHA</label>
             <input
-              class="border px-4 text-xl border-neutral-700 w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
+              class="border px-4 text-xl border-neutral-700 lg:w-[300px] w-8/12 h-16 rounded-sm focus:outline-none focus:border-violet-800 2xl:h-12"
               type="password"
               name="input_senha"
               id="senha"
@@ -62,7 +59,7 @@
 
           <div class="mt-8 ml-24 flex items-center gap-20 2xl:ml-16">
             <input
-              class="bg-roxo-claro text-white font-montserrat font-black w-1/4 py-4 rounded-full cursor-pointer hover:bg-indigo-950 2xl:w-3/5"
+              class="bg-roxo-claro text-white font-montserrat font-black px-5 py-4 rounded-full cursor-pointer hover:bg-indigo-950 "
               type="submit"
               value="Login"
             />

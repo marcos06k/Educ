@@ -60,9 +60,11 @@ include("../../backend/administrador/adm_listar_turmas.php");
       >
       <h1 class="text-sm font-bold text-gray-700">Gerenciar Turmas</h1>
     </menu>
-    <main class="flex justify-center h-3/4 2xl:h-4/6 gap-10">
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <main class="lg:flex-col flex items-center justify-center h-3/4 2xl:h-4/6 gap-10">
+      
+      <!-- tabela com turmas -->
+      <div class="relative lg:w-full w-[1310px] overflow-x-auto shadow-md sm:rounded-lg">
+        <table class=" text-sm text-left rtl:text-right text-gray-500">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" class="px-6 py-3">ID_Turma</th>
@@ -95,26 +97,22 @@ include("../../backend/administrador/adm_listar_turmas.php");
         </table>
       </div>
       <!-- Adicionar aluno -->
-      <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-        <div class="relative w-auto my-6 mx-auto max-w-5xl">
+      <div class="hidden overflow-x-hidden  overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
+        <div class="relative  md:w-[80%] w-auto my-6 mx-auto max-w-5xl">
           <!--content-->
           <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <!--header-->
             <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-              <h3 class="text-xl font-semibold">
-                Adicionar Aluno
-              </h3>
-              <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
-                <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                  ×
-                </span>
+              <h3 class="text-xl font-semibold"> Adicionar Aluno </h3>
+              <button class="p-1 ml-auto  bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
+                <span class="bg-transparent  text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none"> × </span>
               </button>
 
-              <!-- filtrar o alubo pelo cpf -->
+              <!-- filtrar o aluno pelo cpf -->
               <form action="" method="post">
-                <label class="text-sm font-semibold" for="filtrar-cpf">Filtrar por CPF:</label>
-                <input id="filtrar-cpf" class="ml-2 px-2 rounded-md bg-gray-50" placeholder="xxx.xxx.xxx-xx" type="text" name="cpf_aluno" id="">
-                <button class="bg-roxo-claro text-white text-sm px-2 ml-2 py-1 rounded-sm hover:bg-violet-900" type="submit">Filtrar</button>
+                <label class="md:ml-3 text-sm font-semibold" for="filtrar-cpf">Filtrar por CPF:</label>
+                <input id="filtrar-cpf" class="md:w-[80%] ml-2 px-2 rounded-md bg-gray-50" placeholder="xxx.xxx.xxx-xx" type="text" name="cpf_aluno" id="">
+                <button class="bg-roxo-claro rounded-xl text-white text-sm px-2 ml-2 py-1 rounded-sm hover:bg-violet-900" type="submit">Filtrar</button>
               </form>
 
             </div>
@@ -268,16 +266,13 @@ include("../../backend/administrador/adm_listar_turmas.php");
 
       <div class="flex flex-col gap-6">
         <button type="button" onclick="toggleModal('modal-id-turma')">
-          <a
-            class="flex gap-2 items-center bg-roxo-claro text-white h-20 px-10 rounded-lg cursor-pointer hover:bg-purple-950 2xl:h-16 2xl:px-6"
+          <a class="flex gap-2 lg:w-[350px] w-[300px] justify-center items-center bg-roxo-claro text-white h-20 px-10 rounded-lg cursor-pointer hover:bg-purple-950 2xl:h-16 2xl:px-6"
             >Criar Turma<span class="material-symbols-outlined">
               group_add
             </span></a
           >
         </button>
-        <div
-          class="flex flex-col w-full font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50"
-        >
+        <div class="flex flex-col lg:w-[350px] w-[300px] justify-center font-montserrat text-gray-700 shadow-md rounded-md p-4 gap-4 bg-gray-50">
           <h1 class="text-md font-montserrat font-bold flex items-center gap-2"><span class="material-symbols-outlined">sort</span> Filtrar por:</h1>
           
           <!-- filtrar Turma -->
