@@ -43,7 +43,7 @@ include("../../backend/administrador/adm_listar_turmas.php");
           <h1 class="font-bold text-gray-700 antialiased">Administrador 01</h1>
         </div>
         <a
-          href="#"
+          href="..\login.html"
           class="bg-roxo-claro text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-purple-950"
           >LOG OUT</a
         >

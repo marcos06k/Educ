@@ -30,6 +30,10 @@ tailwind.config = {
       
             'sm': {'max': '639px'},
             // => @media (max-width: 639px) { ... } celular
+
+            'rs': {'min' : '767px'},
+            // => @media (min-width: 767px) { ... }  tablet ou maior p responsividade
+
           }
 
         

@@ -15,8 +15,8 @@
       rel="stylesheet"
     />
 </head>
-<body class="bg-fundo-claro flex font-poppins h-screen">
-    <nav class="flex flex-col items-center h-full bg-roxo-claro w-20">
+<body class="bg-fundo-claro flex font-poppins h-fit">
+    <nav class="flex flex-col items-center h-auto bg-roxo-claro w-20 block sm:hidden">
         <div class="flex flex-col gap-4 mt-16">
             <a href="#" class="flex items-center justify-center material-symbols-outlined text-white bg-[#201336] text-3xl size-12 rounded-full hover:bg-white hover:text-[#201336] transition-all">other_houses</a>
             <a href="#" class="flex items-center justify-center material-symbols-outlined text-white bg-[#201336] text-3xl size-12 rounded-full hover:bg-white hover:text-[#201336] transition-all">calendar_month</a>
@@ -27,26 +27,38 @@
             <a href="#" class="flex items-center justify-center material-symbols-outlined text-white bg-[#201336] text-3xl size-12 rounded-full hover:bg-white hover:text-[#201336] transition-all">account_circle</a>
         </div>
     </nav>
-    <section class="flex flex-col w-full h-screen items-center">
-        <header class="bg-white shadow-sm w-full h-20 flex justify-between items-center px-10">
-            <div class="flex items-center bg-fundo-claro  rounded-lg text-gray-400"><label for="search" class="material-symbols-outlined p-2 rounded-lg">search</label><input placeholder="Pesquisar" id="search" type="text" class="bg-fundo-claro p-2 italic text-sm focus:outline-none rounded-lg"></div>
-            <img src="../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-36">
-            <div class="flex items-center gap-3">
+    <section class="flex flex-col w-full h-fit items-center">
+        <header class="bg-white shadow-sm w-full h-20 flex justify-between items-center px-10 ">
+            <div class="flex items-center bg-fundo-claro  rounded-lg text-gray-400 md:hidden"><label for="search" class="material-symbols-outlined p-2 rounded-lg">search</label><input placeholder="Pesquisar" id="search" type="text" class="bg-fundo-claro p-2 italic text-sm focus:outline-none rounded-lg"></div>
+            <!-- <button for="search" onclick="{toggleSearch()}" class="material-symbols-outlined p-2 rounded-lg hidden sm:block">search</button> -->
+            <img src="../../../assets/Group 3-PhotoRoom.png-PhotoRoom.png" class="h-40">
+            <div class="flex items-center gap-3 md:hidden"> <!--  -->
                 <img src="../../../assets/user.png" class="h-10">
                 <h1 class="flex items-center italic gap-1 text-sm">Olá,<b>Artur V.</b><a href="#" class="material-symbols-outlined">arrow_drop_down</a></h1>
-                <a
-          href="#"
-          class="bg-violet-700 text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-violet-800"
-          >LOG OUT</a
-        >
+                <a href="..\login.html" class="bg-violet-700 text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-violet-800">LOG OUT</a>            
             </div>
-        </header>
-        <menu
-      class="gap-2 bg-white shadow-sm w-full h-20 2xl:h-12 flex items-center px-10 mb-12 2xl:mb-0"
-     >
-          <span class="material-symbols-outlined text-3xl 2xl:text-2xl">other_houses</span>
-          <h1 class="text-sm 2xl:text-[12px] font-bold">Menu Principal</h1>    
-     </menu>
+            <button type="button" class="hidden md:flex " onclick="toggleMenu()">
+                <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
+                    <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-500 origin-center overflow-hidden">
+                    <div class="bg-white h-[2px] w-7 transform transition-all duration-500 group-focus:-rotate-45 -translate-x-1"></div>
+                    <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-500 "></div>
+                    <div class="bg-white h-[2px] w-7 transform transition-all duration-500 group-focus:rotate-45 -translate-x-1"></div>
+                    </div>
+                </div>    
+            </button>
+    </header>
+    <menu class="gap-2 bg-white shadow-sm w-full h-20 2xl:h-12 flex items-center px-10 mb-12 2xl:mb-0 sm:hidden">
+        <span class="material-symbols-outlined text-3xl 2xl:text-2xl">other_houses</span>
+        <h1 class="text-sm 2xl:text-[12px] font-bold">Menu Principal</h1>
+      </menu> 
+      <menu class="grid grid-rows-2 gap-3 bg-white shadow-sm w-full h-fit flex items-center px-10 mb-12 2xl:mb-0 hidden" id="MENU">
+        <div class="flex items-center bg-fundo-claro  rounded-lg text-gray-400"><label for="search" class="material-symbols-outlined p-2 rounded-lg">search</label><input placeholder="Pesquisar" id="search" type="text" class="bg-fundo-claro p-2 italic text-sm focus:outline-none rounded-lg"></div>
+        <div class="flex items-center gap-5"> <!--  -->
+            <img src="../../../assets/user.png" class="h-10">
+            <h1 class="flex items-center italic gap-1 text-sm">Olá,<b>Artur V.</b><a href="#" class="material-symbols-outlined">arrow_drop_down</a></h1>
+            <a href="..\login.html" class="bg-violet-700 text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-violet-800">LOG OUT</a>            
+        </div>
+    </menu>
      <main class="flex flex-wrap w-4/6 items-center justify-center gap-x-40 gap-y-9 2xl:gap-x-20 mt-6 mb-12 2xl:mt-8 2xl:max-w-[700px]">
         <div class="flex flex-col items-center justify-center gap-2">
             <a class="flex items-center justify-center bg-violet-200 size-[250px] 2xl:size-[150px] rounded-full overflow-hidden" href="#">
@@ -90,5 +102,24 @@
             <h1 class="font-medium">Meu Perfil</h1>
         </div>
      </main>
+     <script>
+        // pega o botão e o menu
+        const toggleButton = document.querySelector('.toggle-search-bar');
+        const searchBar = document.getElementById('MENU');
+
+        // verifica se é menor do q um tablet, se sim : spawna a tela com "hidden = false"
+        const isSmallScreen = window.matchMedia('(max-width: 767px)'); // Adjust breakpoint for your needs
+
+        if (isSmallScreen.matches) {
+        // Code to execute on screens smaller than md (767px by default)
+            searchBar.classList.toggle('hidden');  // Use Tailwind's hidden class
+        } else {
+            // Code to execute on screens larger than or equal to md
+            console.log('This is not a small screen.');
+        }
+        function toggleMenu(){
+            searchBar.classList.toggle('hidden');  // Use Tailwind's hidden class
+        }
+    </script>
 </body>
 </html>

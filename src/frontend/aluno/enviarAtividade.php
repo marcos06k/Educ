@@ -36,7 +36,7 @@
                 <img src="../../../assets/user.png" class="h-10">
                 <h1 class="flex items-center italic gap-1 text-sm">Olá,<b>Artur V.</b><a href="#" class="material-symbols-outlined">arrow_drop_down</a></h1>
                 <a
-          href="#"
+          href="..\login.html"
           class="bg-violet-700 text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-violet-800"
           >LOG OUT</a
         >

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Diretório da nova pasta que o arquivo será redirecionado/salvo
             $pastaDir = '../../img/professor/atividades/';  
-            $uploadPath = $pastaDir.basename($file["name"]).PHP_EOL;
+            $uploadPath = $pastaDir . basename($file["name"]);
 
             // Move o arquivo para a pasta do destino e faz o upload do caminho do diretório para o BD
             if (move_uploaded_file($file["tmp_name"], $uploadPath)) {

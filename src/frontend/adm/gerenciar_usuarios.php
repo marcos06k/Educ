@@ -30,7 +30,7 @@ include("../../backend/administrador/adm_listar_usuarios.php");
         <img src="../../../assets/user.png" alt="Foto perfil" class="h-8" />
         <h1 class="font-bold text-gray-700 antialiased">Administrador 01</h1>
       </div>
-      <a href="#" class="bg-roxo-claro text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-purple-950">LOG OUT</a>
+      <a href="..\login.html" class="bg-roxo-claro text-white py-3 px-6 rounded-md font-bold cursor-pointer hover:bg-purple-950">LOG OUT</a>
     </div>
   </header>
   <menu class="gap-2 bg-white shadow-sm w-full h-20 flex items-center px-10 mb-12">
